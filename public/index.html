@@ -384,64 +384,102 @@
     </div>
   </section>
 
-  <!-- ROADMAP SECTION (Restored Vertical connecting line track) -->
+  <!-- ROADMAP SECTION (Restored Original Left/Right Alternating Layout) -->
   <section id="timeline" class="py-24 bg-[#020617] relative overflow-hidden border-b border-white/[0.03]">
     <!-- Ambient Backdrop Glow -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
     <div class="max-w-[90vw] mx-auto relative z-10">
       <!-- Center Header Stack -->
-      <div class="text-center mb-16 space-y-3">
+      <div class="text-center mb-20 space-y-3">
         <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase block">Journey Progression</span>
         <h2 class="font-syne text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Live Success Roadmap</h2>
         <p class="font-bricolage text-sm text-slate-400 max-w-2xl mx-auto font-light">Four structured execution phases bridging the gap from profiling to international arrival.</p>
       </div>
 
-      <!-- Stacked Card Container with Connecting Line Track -->
-      <div class="relative max-w-5xl mx-auto">
-        <!-- Downward Connecting Line (Absolute Positioned) -->
-        <div class="absolute left-14 top-8 bottom-8 w-[1px] bg-gradient-to-b from-cyan-500/40 via-slate-800 to-transparent hidden sm:block"></div>
+      <!-- Vertical Timeline Component -->
+      <div class="relative w-full max-w-3xl mx-auto pb-12">
+        <!-- Background vertical tracking line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-900 transform md:-translate-x-1/2 z-0"></div>
+        
+        <!-- Live filling progress vertical line (GSAP triggered) -->
+        <div id="timeline-progress-bar" class="absolute left-4 md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-cyan-500 to-cyan-400 transform md:-translate-x-1/2 z-0 h-0 transition-all"></div>
 
-        <div class="space-y-6">
-          <!-- Phase 01 -->
-          <div class="timeline-step relative flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-slate-950/30 backdrop-blur-xl border border-white/[0.06] rounded-xl p-8 hover:border-cyan-500/30 transition-all duration-300 group">
-            <div class="relative z-10 flex-shrink-0 h-12 w-12 bg-slate-900 border border-cyan-500/30 rounded-full flex items-center justify-center font-bricolage text-sm font-bold text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">01</div>
-            <div class="flex-shrink-0 sm:w-48">
-              <h4 class="font-bricolage text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Profile Audit</h4>
-              <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step One</span>
+        <!-- Timeline steps -->
+        <div class="space-y-12">
+          
+          <!-- Phase 1 (Left Card, Right Empty) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between timeline-step">
+            <div class="step-dot absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-800 flex items-center justify-center transform -translate-x-1/2 z-10 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]" id="dot-1">
+              <span class="text-[10px] font-bold text-slate-500 font-bricolage">01</span>
             </div>
-            <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed flex-1">Bangarh advisors evaluate past transcripts, portfolios, and credential evaluations to spot potential gaps.</p>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
+              <div class="p-6 glass-overlay-depth rounded-xl hover:border-cyan-500/30 transition-all duration-300 group">
+                <span class="font-bricolage text-[9px] font-bold uppercase tracking-wider text-cyan-500">Phase 01</span>
+                <h3 class="font-bricolage text-base font-bold text-white mt-1 group-hover:text-cyan-400 transition-colors">Profile Audit</h3>
+                <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step One</span>
+                <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed mt-2">
+                  Bangarh advisors evaluate past transcripts, portfolios, and credential evaluations to spot potential gaps.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
           </div>
 
-          <!-- Phase 02 -->
-          <div class="timeline-step relative flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-slate-950/30 backdrop-blur-xl border border-white/[0.06] rounded-xl p-8 hover:border-cyan-500/30 transition-all duration-300 group">
-            <div class="relative z-10 flex-shrink-0 h-12 w-12 bg-slate-900 border border-cyan-500/30 rounded-full flex items-center justify-center font-bricolage text-sm font-bold text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">02</div>
-            <div class="flex-shrink-0 sm:w-48">
-              <h4 class="font-bricolage text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Strategic Mapping</h4>
-              <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Two</span>
+          <!-- Phase 2 (Left Empty, Right Card) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between timeline-step">
+            <div class="step-dot absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-800 flex items-center justify-center transform -translate-x-1/2 z-10 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]" id="dot-2">
+              <span class="text-[10px] font-bold text-slate-500 font-bricolage">02</span>
             </div>
-            <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed flex-1">Advisors shortlist matching global destinations and target corporate positions matching recruitment timelines.</p>
+            <div class="hidden md:block w-[45%]"></div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
+              <div class="p-6 glass-overlay-depth rounded-xl hover:border-cyan-500/30 transition-all duration-300 group">
+                <span class="font-bricolage text-[9px] font-bold uppercase tracking-wider text-cyan-500">Phase 02</span>
+                <h3 class="font-bricolage text-base font-bold text-white mt-1 group-hover:text-cyan-400 transition-colors">Strategic Mapping</h3>
+                <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Two</span>
+                <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed mt-2">
+                  Advisors shortlist matching global destinations and target corporate positions matching recruitment timelines.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Phase 03 -->
-          <div class="timeline-step relative flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-slate-950/30 backdrop-blur-xl border border-white/[0.06] rounded-xl p-8 hover:border-cyan-500/30 transition-all duration-300 group">
-            <div class="relative z-10 flex-shrink-0 h-12 w-12 bg-slate-900 border border-cyan-500/30 rounded-full flex items-center justify-center font-bricolage text-sm font-bold text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">03</div>
-            <div class="flex-shrink-0 sm:w-48">
-              <h4 class="font-bricolage text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Dossier Curation</h4>
-              <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Three</span>
+          <!-- Phase 3 (Left Card, Right Empty) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between timeline-step">
+            <div class="step-dot absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-800 flex items-center justify-center transform -translate-x-1/2 z-10 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]" id="dot-3">
+              <span class="text-[10px] font-bold text-slate-500 font-bricolage">03</span>
             </div>
-            <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed flex-1">Advisors audit and structure technical resumes, portfolios, and statements of purpose (SOPs).</p>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
+              <div class="p-6 glass-overlay-depth rounded-xl hover:border-cyan-500/30 transition-all duration-300 group">
+                <span class="font-bricolage text-[9px] font-bold uppercase tracking-wider text-cyan-500">Phase 03</span>
+                <h3 class="font-bricolage text-base font-bold text-white mt-1 group-hover:text-cyan-400 transition-colors">Dossier Curation</h3>
+                <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Three</span>
+                <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed mt-2">
+                  Advisors audit and structure technical resumes, portfolios, and statements of purpose (SOPs).
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
           </div>
 
-          <!-- Phase 04 -->
-          <div class="timeline-step relative flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-slate-950/30 backdrop-blur-xl border border-white/[0.06] rounded-xl p-8 hover:border-cyan-500/30 transition-all duration-300 group">
-            <div class="relative z-10 flex-shrink-0 h-12 w-12 bg-slate-900 border border-cyan-500/30 rounded-full flex items-center justify-center font-bricolage text-sm font-bold text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">04</div>
-            <div class="flex-shrink-0 sm:w-48">
-              <h4 class="font-bricolage text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">Filing & Compliance</h4>
-              <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Four</span>
+          <!-- Phase 4 (Left Empty, Right Card) -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between timeline-step">
+            <div class="step-dot absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-800 flex items-center justify-center transform -translate-x-1/2 z-10 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)]" id="dot-4">
+              <span class="text-[10px] font-bold text-slate-500 font-bricolage">04</span>
             </div>
-            <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed flex-1">Advisors run simulated mock visa panel interviews and verify financial declarations for final visa clearances.</p>
+            <div class="hidden md:block w-[45%]"></div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
+              <div class="p-6 glass-overlay-depth rounded-xl hover:border-cyan-500/30 transition-all duration-300 group">
+                <span class="font-bricolage text-[9px] font-bold uppercase tracking-wider text-cyan-500">Phase 04</span>
+                <h3 class="font-bricolage text-base font-bold text-white mt-1 group-hover:text-cyan-400 transition-colors">Filing & Compliance</h3>
+                <span class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase block mt-1">Step Four</span>
+                <p class="font-bricolage text-sm text-slate-400 font-light leading-relaxed mt-2">
+                  Advisors run simulated mock visa panel interviews and verify financial declarations for final visa clearances.
+                </p>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -826,13 +864,53 @@
       // --- GSAP SCROLLTRIGGER PROGRESS TIMELINE ---
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animate timeline cards opacity and scale as they enter viewport
+      // Animate progress bar fill height
+      gsap.to("#timeline-progress-bar", {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#timeline",
+          start: "top 60%",
+          end: "bottom 60%",
+          scrub: true
+        }
+      });
+
+      // Activate dots sequentially as they cross the scroll threshold
+      const dots = document.querySelectorAll(".step-dot");
+      dots.forEach((dot, index) => {
+        gsap.to(dot, {
+          borderColor: "#06B6D4",
+          backgroundColor: "#020617",
+          boxShadow: "0 0 15px rgba(6, 182, 212, 0.4)",
+          scrollTrigger: {
+            trigger: dot,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          }
+        });
+        
+        // Target inner label numbers inside dots
+        const label = dot.querySelector("span");
+        if (label) {
+          gsap.to(label, {
+            color: "#22D3EE",
+            scrollTrigger: {
+              trigger: dot,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            }
+          });
+        }
+      });
+
+      // Animate timeline cards opacity
       const timelineSteps = document.querySelectorAll(".timeline-step");
       timelineSteps.forEach(step => {
-        gsap.from(step, {
+        const card = step.querySelector(".glass-overlay-depth");
+        gsap.from(card, {
           opacity: 0.3,
-          scale: 0.97,
-          y: 20,
+          y: 30,
           duration: 0.8,
           scrollTrigger: {
             trigger: step,
