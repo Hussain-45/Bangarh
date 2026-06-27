@@ -50,3 +50,8 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
   - [x] Layout the asymmetric hero section matching the exact text wrap and spacing.
   - [x] Recreate the three floating 3D-perspective metrics cards with matching icons and neon-colored outer rings.
   - [x] Test overall responsivity across screen sizes to ensure the layout matches image_708a61.jpg.
+
+- [x] **Step 10: Revert floating navigation style to previous brand image logo system**
+  - [x] Restore logo image `assets/logo.png` with `.brand-logo-blend` filter class.
+  - [x] Restore original navigation link set (AI Matcher, Platforms, Roadmap, Academy, Contact).
+  - [x] Restore cyan-teal gradient pill button for action items.
