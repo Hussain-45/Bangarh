@@ -18,6 +18,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 
 
   <script>
@@ -1660,45 +1662,20 @@
 
       if (academyReserveBtn) {
         academyReserveBtn.addEventListener("click", () => {
-          if (programSelect) programSelect.value = "test-prep";
-          if (contactSectionEl) {
-            const headerOffset = document.getElementById("main-header")?.offsetHeight || 80;
-            const targetPos = contactSectionEl.getBoundingClientRect().top + window.scrollY;
-            const offsetPos = targetPos - headerOffset - 16;
-            gsap.to(window, {
-              scrollTo: { y: offsetPos, autoKill: false },
-              duration: 0.85,
-              ease: "power3.out"
-            });
+          if (window.triggerUPICheckout) {
+            window.triggerUPICheckout("IELTS & Global Test Prep", 20900, "IELTS Cohort Seat");
           }
         });
       }
 
       if (academyDownloadBtn) {
-        academyDownloadBtn.addEventListener("click", function() {
-          const originalText = this.innerHTML;
-          this.disabled = true;
-          this.innerHTML = `<span class="inline-block animate-spin mr-2">⏳</span> Processing Secure Checkout...`;
-          
-          setTimeout(() => {
-            this.innerHTML = originalText;
-            this.disabled = false;
-            
-            // Simulate Secure Asset Delivery File Download
-            const link = document.createElement('a');
-            link.href = '#'; 
-            link.download = 'Bangarh_Elite_SOP_Blueprint.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Launch Premium Custom Toast Response Banner
-            if (window.showToast) {
-              window.showToast("Success! Your Elite Toolkit has been dispatched to your download queue.", "success");
-            }
-          }, 1200);
+        academyDownloadBtn.addEventListener("click", () => {
+          if (window.triggerUPICheckout) {
+            window.triggerUPICheckout("Elite SOP & Resume Blueprint", 4100, "SOP Bundle Download");
+          }
         });
       }
+
 
       if (academyInquireBtn) {
         academyInquireBtn.addEventListener("click", () => {
@@ -1926,6 +1903,33 @@
     </div>
   </div>
 
+  <!-- FLOATING MODAL CHECKOUT COMPONENT -->
+  <div id="upi-payment-modal" class="modal-overlay fixed inset-0 z-[150] bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+      <div class="modal-card-body bg-[#0B132B]/95 border border-white/[0.1] rounded-2xl max-w-md w-full p-6 text-center relative shadow-[0_0_50px_rgba(6,182,212,0.15)] transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
+          
+          <button onclick="closeModal('upi-payment-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">&times;</button>
+          
+          <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.2em] uppercase block mb-1">Secure Checkout</span>
+          <h4 id="checkout-item-title" class="font-syne text-xl font-bold text-white uppercase mb-2">Item</h4>
+          <div id="checkout-item-price" class="font-syne text-2xl font-extrabold text-cyan-400 mb-6">₹0.00</div>
+          
+          <!-- QR Container Shell -->
+          <div class="bg-white p-4 rounded-xl inline-block mb-6 shadow-inner mx-auto" id="qrcode-target"></div>
+          
+          <p class="font-bricolage text-xs text-slate-400 mb-6 px-4">Scan this QR code using any UPI app (GPay, PhonePe, Paytm) to complete your transaction.</p>
+          
+          <!-- Mobile Direct Intent Link -->
+          <a id="upi-mobile-intent" href="#" class="hidden max-sm:block w-full font-bricolage text-xs font-bold uppercase tracking-widest text-[#020617] bg-cyan-400 py-4 rounded-xl mb-3 text-center font-sans">
+              Open in UPI App
+          </a>
+          
+          <button onclick="simulateVerification()" class="w-full font-bricolage text-xs font-bold uppercase tracking-widest text-white bg-slate-900 border border-white/[0.1] py-4 rounded-xl hover:bg-slate-800">
+              Verify Payment & Unlock
+          </button>
+      </div>
+  </div>
+
+
   <!-- ================================================================
        THEATRE LIGHTBOX MODAL — Choice 2 component
        Full-screen blur overlay + cinematic dark card + 16:9 video slot
@@ -1990,6 +1994,55 @@
 
   <script>
     // --- MODAL DYNAMIC INTERACTION CONTROLLERS ---
+    
+    // UPI PAYMENT SYSTEM STATE & CONTROL
+    let currentActiveAsset = null;
+    window.triggerUPICheckout = function(itemName, amountINR, noteText) {
+      const title = document.getElementById('checkout-item-title');
+      const price = document.getElementById('checkout-item-price');
+      const qrTarget = document.getElementById('qrcode-target');
+      const intentLink = document.getElementById('upi-mobile-intent');
+      
+      currentActiveAsset = noteText;
+      title.innerText = itemName;
+      price.innerText = "₹" + amountINR.toLocaleString('en-IN');
+      
+      // Formulate Deep Link String
+      const upiLink = `upi://pay?pa=hussain45@upi&pn=Bangarh%20Limited&am=${amountINR}&cu=INR&tn=${encodeURIComponent(noteText)}`;
+      
+      // Re-draw QR Code
+      qrTarget.innerHTML = "";
+      new QRCode(qrTarget, {
+          text: upiLink,
+          width: 180,
+          height: 180,
+          colorDark : "#020617",
+          colorLight : "#ffffff"
+      });
+      
+      intentLink.href = upiLink;
+      
+      // Open Modal
+      openModal('upi-payment-modal');
+    };
+
+    window.simulateVerification = function() {
+      closeModal('upi-payment-modal');
+      if (window.showToast) {
+        window.showToast(`Payment Confirmed. Access granted to: ${currentActiveAsset}`, "success");
+      }
+      
+      if (currentActiveAsset && currentActiveAsset.includes('Bundle')) {
+          // Trigger automated asset sheet download script
+          const link = document.createElement('a');
+          link.href = '#';
+          link.download = 'Bangarh_SOP_Blueprint_Premium.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+      }
+    };
+
     function openModal(id) {
       const modal = document.getElementById(id);
       modal.classList.remove('pointer-events-none');

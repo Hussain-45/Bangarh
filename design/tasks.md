@@ -92,5 +92,21 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
 - [x] **Step 5: Run the integrated browser test runner to guarantee link anchors execute seamlessly across desktop and mobile screens**
   - [x] Verify click anchors, dropdown selections, checkout simulation, and toast notifications.
 
+---
+
+## Transaction Gatekeeping & UPI Checkout Modal
+
+- [x] **Step 1: Bind click identifiers to the specific cards and premium items modeled in image_725c59.png**
+  - [x] Map Reserve Seat button (IELTS Prep, ₹20,900) and Download Bundle button (SOP Blueprint, ₹4,100) to triggerUPICheckout.
+- [x] **Step 2: Inject a responsive, blurred glass backdrop Checkout Modal container at the root of the body**
+  - [x] Inject upi-payment-modal with glassmorphic styling, title/price displays, and close triggers.
+- [x] **Step 3: Implement an open-source QR code rendering engine script (via a secure CDN) inside the page header to draw checkout parameters dynamically**
+  - [x] Load qrcode.js dynamically from cdnjs and instantiate dynamic QR rendering on checkout triggers.
+- [x] **Step 4: Write verification callback simulations to unlock the corresponding digital assets upon successful authorization**
+  - [x] Code simulateVerification() to trigger showToast and download the premium blueprint file upon authorization.
+- [x] **Step 5: Test mobile browser links to ensure cross-app intent mapping works perfectly**
+  - [x] Implement the mobile-intent button linking direct to the UPI app scheme upi://pay on small devices.
+
+
 
 
