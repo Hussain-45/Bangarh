@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bangarh Limited | Premium Placement & Career Trajectory Engineers</title>
+  <title>Bangarh Limited | Global Placement & Career Trajectory Engineers</title>
   <meta name="description" content="Engineering generational jumps in professional and academic capabilities globally. Access our elite placement gateways and strategic roadmap.">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -54,7 +54,15 @@
       background: #0d9488;
     }
 
-    /* Easing interactions */
+    /* Glassmorphism containers */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Glow hover lift animations */
     .glow-hover {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -83,7 +91,19 @@
       animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Accordion transitions */
+    /* Infinite Marquee Ticker */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Accordion FAQ transitions */
     .faq-content {
       max-height: 0;
       overflow: hidden;
@@ -102,13 +122,13 @@
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans selection:bg-teal-500 selection:text-slate-950 overflow-x-hidden min-h-screen flex flex-col">
 
-  <!-- STICKY NAVIGATION HEADER (STICKY NAV RECEPTACLE) -->
+  <!-- STICKY GLASS NAVIGATION HEADER (TRANSPARENT STICKY NAVIGATION) -->
   <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent py-5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       
       <!-- Brand Logo Emblem -->
       <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-9 h-9 rounded-sm bg-teal-650 flex items-center justify-center shadow-lg shadow-teal-600/20 group-hover:scale-105 transition-transform duration-300">
+        <div class="w-9 h-9 rounded-sm bg-teal-600 flex items-center justify-center shadow-lg shadow-teal-600/20 group-hover:scale-105 transition-transform duration-300">
           <span class="font-sans font-extrabold text-lg text-slate-950">B</span>
         </div>
         <span class="font-sans font-bold text-sm tracking-widest text-white uppercase group-hover:text-teal-400 transition-colors duration-300">
@@ -118,10 +138,10 @@
 
       <!-- Desktop Links -->
       <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-400">
-        <a href="#gateway" class="hover:text-teal-400 transition-colors">Primary Gateways</a>
+        <a href="#assessment" class="hover:text-teal-400 transition-colors">Pre-Assessment</a>
         <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
-        <a href="#timeline" class="hover:text-teal-400 transition-colors">Milestones</a>
-        <a href="#contact" class="hover:text-teal-400 transition-colors">Evaluation Desk</a>
+        <a href="#timeline" class="hover:text-teal-400 transition-colors">Roadmap</a>
+        <a href="#contact" class="hover:text-teal-400 transition-colors">Inquiry Desk</a>
         <a href="#contact" class="px-4 py-2 border border-teal-500/30 hover:border-teal-500 text-teal-400 hover:text-white bg-teal-500/5 transition-all duration-300 rounded-sm">Book Consultation</a>
       </nav>
 
@@ -133,16 +153,16 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-drawer" class="hidden fixed inset-0 bg-slate-950/98 backdrop-blur-xl z-40 flex flex-col justify-center items-center space-y-8 text-sm font-semibold uppercase tracking-widest">
-      <a href="#gateway" class="mobile-nav-link text-slate-300 hover:text-teal-400">Primary Gateways</a>
+      <a href="#assessment" class="mobile-nav-link text-slate-300 hover:text-teal-400">Pre-Assessment</a>
       <a href="#services" class="mobile-nav-link text-slate-300 hover:text-teal-400">Services</a>
-      <a href="#timeline" class="mobile-nav-link text-slate-300 hover:text-teal-400">Milestones</a>
-      <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-teal-400">Evaluation Desk</a>
+      <a href="#timeline" class="mobile-nav-link text-slate-300 hover:text-teal-400">Roadmap</a>
+      <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-teal-400">Inquiry Desk</a>
       <a href="#contact" class="mobile-nav-link px-6 py-2.5 border border-teal-500 text-teal-450 hover:bg-teal-500/10">Book Consultation</a>
     </div>
   </header>
 
-  <!-- HIGH-IMPACT HERO ARENA -->
-  <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-radial overflow-hidden z-10">
+  <!-- HIGH-IMPACT TECH HERO ZONE -->
+  <section class="relative pt-32 pb-16 md:pt-48 md:pb-28 hero-radial overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
       <!-- Hero Left Text Column -->
@@ -154,7 +174,7 @@
           Architecting Elite Pathways in <br>
           <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-teal-400">Education & Careers</span>
         </h1>
-        <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
           Curated, premium global advisory designed to guide qualified candidates to top-tier international institutions and strategic corporate placement ecosystems.
         </p>
 
@@ -163,7 +183,7 @@
           <a href="#contact" class="px-6 py-3.5 bg-teal-600 hover:bg-teal-500 text-slate-950 font-bold text-xs uppercase tracking-widest transition-colors rounded-sm shadow-lg shadow-teal-600/25">
             Get Started Free
           </a>
-          <a href="#services" class="px-6 py-3.5 border border-slate-700 hover:border-teal-500 text-slate-350 hover:text-teal-400 font-bold text-xs uppercase tracking-widest transition-all rounded-sm">
+          <a href="#services" class="px-6 py-3.5 border border-slate-700 hover:border-teal-500 text-slate-300 hover:text-teal-400 font-bold text-xs uppercase tracking-widest transition-all rounded-sm">
             Explore Offerings
           </a>
         </div>
@@ -174,27 +194,27 @@
         <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
           
           <!-- Metric Card 1 -->
-          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+          <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm backdrop-blur-md">
             <div class="text-2xl sm:text-3xl font-extrabold text-white">98%</div>
-            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Visa & Admission Success</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">Visa & Admission Rate</div>
           </div>
 
           <!-- Metric Card 2 -->
-          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+          <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm backdrop-blur-md">
             <div class="text-2xl sm:text-3xl font-extrabold text-white">5,000+</div>
-            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Ambitious Mentored</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">Candidates Mentored</div>
           </div>
 
           <!-- Metric Card 3 -->
-          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+          <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm backdrop-blur-md">
             <div class="text-2xl sm:text-3xl font-extrabold text-white">12+</div>
-            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Placement Regions</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">Regions Supported</div>
           </div>
 
-          <!-- Metric Card 4 (Teal Accent Highlight) -->
+          <!-- Metric Card 4 (Teal Highlighted Background) -->
           <div class="p-6 bg-teal-900/20 border border-teal-500/30 rounded-sm shadow-lg shadow-teal-500/5 backdrop-blur-md">
             <div class="text-2xl sm:text-3xl font-extrabold text-teal-400">24/7</div>
-            <div class="text-[10px] font-bold text-teal-500 uppercase tracking-wider mt-1">Strategic Access</div>
+            <div class="text-[10px] font-bold text-teal-400 uppercase tracking-wider mt-1 font-semibold">Dedicated Support</div>
           </div>
 
         </div>
@@ -203,153 +223,212 @@
     </div>
   </section>
 
-  <!-- THE REGIONAL GATEWAY GRID (#gateway) -->
-  <section id="gateway" class="py-24 bg-slate-950 border-t border-slate-900 relative z-10">
-    <div class="max-w-7xl mx-auto px-6">
+  <!-- INFINITE GLOBAL DESTINATION TRUST TICKER -->
+  <section class="py-6 bg-slate-900 border-y border-slate-800/60 overflow-hidden relative z-10">
+    <div class="flex w-[200%] md:w-[150%]">
+      <div class="flex space-x-16 items-center whitespace-nowrap animate-marquee">
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-graduation-cap text-teal-500 mr-2"></i> Ivy League Tier</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-briefcase text-teal-500 mr-2"></i> London Financial District</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-laptop-code text-teal-500 mr-2"></i> Silicon Valley Tech Hubs</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-city text-teal-500 mr-2"></i> Toronto Innovation Centers</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-chart-line text-teal-500 mr-2"></i> New York Corporate Desk</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-building-columns text-teal-500 mr-2"></i> Russell Group Campuses</span>
+        
+        <!-- Duplicated track items for infinite loop seamless scroll -->
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-graduation-cap text-teal-500 mr-2"></i> Ivy League Tier</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-briefcase text-teal-500 mr-2"></i> London Financial District</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-laptop-code text-teal-500 mr-2"></i> Silicon Valley Tech Hubs</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-city text-teal-500 mr-2"></i> Toronto Innovation Centers</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-chart-line text-teal-500 mr-2"></i> New York Corporate Desk</span>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-slate-500"><i class="fa-solid fa-building-columns text-teal-500 mr-2"></i> Russell Group Campuses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PROFILE PRE-ASSESSMENT CHECKER (#assessment) -->
+  <section id="assessment" class="py-24 bg-slate-950 relative z-10">
+    <div class="max-w-4xl mx-auto px-6 space-y-12">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Destination matrices</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Primary Global Destinations</h2>
-        <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-          Unlock pathways in major study destinations and premium global job markets.
+      <div class="text-center max-w-xl mx-auto space-y-4">
+        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Diagnostic profiling</span>
+        <h2 class="text-3xl font-extrabold text-white">Pre-Assessment Portal</h2>
+        <p class="text-slate-455 text-xs text-slate-400 leading-relaxed">
+          Select your target milestone block below to obtain an immediate diagnostic pathway forecast.
         </p>
       </div>
 
-      <!-- 4-Column Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Clickable option cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         
-        <!-- UK Card -->
-        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center">
-              <span class="text-2xl text-slate-400"><i class="fa-solid fa-building-columns"></i></span>
-              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">1-Year Masters</span>
-            </div>
-            <h3 class="text-base font-bold text-white">United Kingdom</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Access Russell Group placements, simplified post-study Graduate Route setups, and localized relocation compliance.
-            </p>
-          </div>
-          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
-            Graduate Route Paths
-          </div>
-        </div>
+        <button class="assessment-btn p-5 bg-slate-900/40 border border-slate-800/60 hover:border-teal-500/40 rounded-sm text-left transition-all duration-300 focus:outline-none active-assessment" data-pathway="undergrad">
+          <div class="text-teal-500 text-lg mb-3"><i class="fa-solid fa-book-open"></i></div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Undergrad Program</h4>
+          <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">High school to elite global campuses.</p>
+        </button>
 
-        <!-- US Card -->
-        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center">
-              <span class="text-2xl text-slate-400"><i class="fa-solid fa-flag-usa"></i></span>
-              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Ivy League</span>
-            </div>
-            <h3 class="text-base font-bold text-white">United States</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Target top Ivy League placements and optimize strategic STEM OPT extensions inside premier startup hubs.
-            </p>
-          </div>
-          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
-            STEM Extension Tracks
-          </div>
-        </div>
+        <button class="assessment-btn p-5 bg-slate-900/40 border border-slate-800/60 hover:border-teal-500/40 rounded-sm text-left transition-all duration-300 focus:outline-none" data-pathway="postgrad">
+          <div class="text-slate-500 text-lg mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Postgrad Route</h4>
+          <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Masters, MBAs, and PhD research Hubs.</p>
+        </button>
 
-        <!-- Canada Card -->
-        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center">
-              <span class="text-2xl text-slate-400"><i class="fa-solid fa-map-pin"></i></span>
-              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Express Entry</span>
-            </div>
-            <h3 class="text-base font-bold text-white">Canada</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Structured mapping for PGWP tracking, SDS eligibility optimization, and streamlined Express Entry points matching.
-            </p>
-          </div>
-          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
-            PR Pipeline Mapping
-          </div>
-        </div>
+        <button class="assessment-btn p-5 bg-slate-900/40 border border-slate-800/60 hover:border-teal-500/40 rounded-sm text-left transition-all duration-300 focus:outline-none" data-pathway="corporate">
+          <div class="text-slate-500 text-lg mb-3"><i class="fa-solid fa-briefcase"></i></div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Corporate Shift</h4>
+          <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Specialist roles & global tech relocations.</p>
+        </button>
 
-        <!-- Europe Card -->
-        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center">
-              <span class="text-2xl text-slate-400"><i class="fa-solid fa-euro-sign"></i></span>
-              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Low-Tuition</span>
-            </div>
-            <h3 class="text-base font-bold text-white">Europe & Global Hubs</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              English-taught programs in Germany, France, or Singapore, with localized corporate recruitment channel alignments.
-            </p>
-          </div>
-          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
-            Placement Clusters
-          </div>
-        </div>
+        <button class="assessment-btn p-5 bg-slate-900/40 border border-slate-800/60 hover:border-teal-500/40 rounded-sm text-left transition-all duration-300 focus:outline-none" data-pathway="executive">
+          <div class="text-slate-500 text-lg mb-3"><i class="fa-solid fa-chess-queen"></i></div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Executive Tier</h4>
+          <p class="text-[10px] text-slate-500 mt-1 leading-relaxed">Leadership pivots & high-level placements.</p>
+        </button>
 
       </div>
+
+      <!-- Dynamic Timeline Notice Box -->
+      <div id="pathway-notice-box" class="glass-card rounded-sm p-6 border border-slate-800/60 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-500/5 rounded-full blur-xl"></div>
+        <div class="flex items-start space-x-4">
+          <div class="w-8 h-8 rounded bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-xs mt-0.5" id="notice-icon">
+            <i class="fa-solid fa-timeline"></i>
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-teal-400" id="notice-title">Admissions Pathway: Undergrad Program</h3>
+            <p class="text-slate-200 text-xs leading-relaxed max-w-2xl" id="notice-content">
+              <strong>Preparation Window:</strong> 18-Month Prep. <br>
+              <strong>Target Parameters:</strong> GPA 3.5+ Equivalents, SAT/ACT diagnostic alignment, comprehensive extracurricular mapping, and target Ivy League placement architectures.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- THE COMPREHENSIVE SERVICES MATRIX (#services) -->
+  <!-- THE REGIONAL GATEWAY & COMPREHENSIVE SERVICES MATRIX (#services) -->
   <section id="services" class="py-24 bg-slate-900/40 border-t border-slate-900 relative z-10">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6 space-y-20">
       
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Bespoke advisory</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Comprehensive Services Matrix</h2>
-        <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-          Strategic operational cards mapping the exact vectors of our placement support.
-        </p>
+      <!-- Part 1: Regional Gateways -->
+      <div class="space-y-12">
+        <!-- Header -->
+        <div class="text-center max-w-xl mx-auto space-y-3">
+          <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Destination channels</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Primary Global Destinations</h2>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Transitioning qualified minds into the world's most lucrative and elite environments.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- UK Card -->
+          <div class="p-6 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[220px]">
+            <div class="space-y-3">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-teal-400">United Kingdom</span>
+              <h3 class="text-base font-bold text-white">Masters & Russell Group</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Streamlined 1-Year Masters placement tracks and Graduate Route post-study work visa transitions.
+              </p>
+            </div>
+            <span class="text-[9px] font-bold tracking-wider text-slate-500 uppercase mt-4">2-Year Work Route</span>
+          </div>
+
+          <!-- US Card -->
+          <div class="p-6 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[220px]">
+            <div class="space-y-3">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-teal-400">United States</span>
+              <h3 class="text-base font-bold text-white">STEM & Ivy Placements</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Elite university counseling and structural mapping for 3-Year STEM extension parameters.
+              </p>
+            </div>
+            <span class="text-[9px] font-bold tracking-wider text-slate-500 uppercase mt-4">3-Year OPT Extensions</span>
+          </div>
+
+          <!-- Canada Card -->
+          <div class="p-6 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[220px]">
+            <div class="space-y-3">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-teal-400">Canada</span>
+              <h3 class="text-base font-bold text-white">PGWP & Express Entry</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Post-Graduation Work Permit navigation and comprehensive Express Entry immigration points modeling.
+              </p>
+            </div>
+            <span class="text-[9px] font-bold tracking-wider text-slate-500 uppercase mt-4">Permanent Residency Paths</span>
+          </div>
+
+          <!-- Europe Card -->
+          <div class="p-6 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[220px]">
+            <div class="space-y-3">
+              <span class="text-[10px] font-bold tracking-widest uppercase text-teal-400">Europe</span>
+              <h3 class="text-base font-bold text-white">Tech & Corporate Frontiers</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                English-taught placements in Germany, France, or Singapore matched with corporate hiring hubs.
+              </p>
+            </div>
+            <span class="text-[9px] font-bold tracking-wider text-slate-500 uppercase mt-4">Low-Tuition Structures</span>
+          </div>
+
+        </div>
       </div>
 
-      <!-- 3-Column Service Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- Card 1 -->
-        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
-          <div class="space-y-4">
-            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-graduation-cap"></i></span>
-            <h3 class="text-lg font-bold text-white">Academic Guidance</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Strategic university selection matching your academic credentials. We direct dossier building, course shortlists, custom statement of purpose (SOP) optimization, and secure application filing.
-            </p>
-          </div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
-            Admissions Desk
-          </div>
+      <!-- Part 2: Comprehensive Services Matrix -->
+      <div class="space-y-12">
+        <div class="text-center max-w-xl mx-auto space-y-3">
+          <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Advisory matrix</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Core Pillars Matrix</h2>
         </div>
 
-        <!-- Card 2 -->
-        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
-          <div class="space-y-4">
-            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-briefcase"></i></span>
-            <h3 class="text-lg font-bold text-white">Career Consultation</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Audit corporate trajectories and mapping placement calendars. We rewrite technical CVs, build LinkedIn profiles for search visibility, and conduct executive mock interviews.
-            </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1 -->
+          <div class="p-8 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[300px]">
+            <div class="space-y-4">
+              <span class="text-teal-500 text-3xl"><i class="fa-solid fa-graduation-cap"></i></span>
+              <h3 class="text-lg font-bold text-white">Academic Guidance</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Bespoke university selection aligning past credentials with target institutional profiles. We direct SOP polishing, recommendation formatting, and application timeline tracking.
+              </p>
+            </div>
+            <div class="text-[9px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-900">
+              Admission Engineering
+            </div>
           </div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
-            Placement Desk
-          </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
-          <div class="space-y-4">
-            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-circle-check"></i></span>
-            <h3 class="text-lg font-bold text-white">Visa & Compliance</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
-              Ensure flawless processing. We audit financial sources, guide document compilation, verify regulatory guidelines, and run simulate consular mock panel interviews.
-            </p>
+          <!-- Pillar 2 -->
+          <div class="p-8 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[300px]">
+            <div class="space-y-4">
+              <span class="text-teal-500 text-3xl"><i class="fa-solid fa-briefcase"></i></span>
+              <h3 class="text-lg font-bold text-white">Career Consultation</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Audit credentials to map quarter-specific hiring slots. We direct LinkedIn profile engineering, resume design targets, and behavioral mock simulation panels.
+              </p>
+            </div>
+            <div class="text-[9px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-900">
+              Placement Strategy
+            </div>
           </div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
-            Compliance Desk
-          </div>
-        </div>
 
+          <!-- Pillar 3 -->
+          <div class="p-8 bg-slate-950 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[300px]">
+            <div class="space-y-4">
+              <span class="text-teal-500 text-3xl"><i class="fa-solid fa-circle-check"></i></span>
+              <h3 class="text-lg font-bold text-white">Visa & Compliance</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Flawless filing protocols. We coordinate bank flow checks, verify local declaration forms, audit financial histories, and organize consular mock interview panel drills.
+              </p>
+            </div>
+            <div class="text-[9px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-900">
+              Compliance Clearances
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -359,10 +438,10 @@
       
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
-        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Roadmap timeline</span>
+        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Journey progression</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Live Success Roadmap</h2>
         <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-          Four distinct execution phases structured to launch your global career and education.
+          Four structured execution phases bridging the gap from profiling to international arrival.
         </p>
       </div>
 
@@ -374,69 +453,69 @@
         <!-- Timeline steps -->
         <div class="space-y-12">
           
-          <!-- Phase 01 -->
+          <!-- Phase 1 -->
           <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
             <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
               <span class="text-[10px] font-bold text-teal-400">01</span>
             </div>
             <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
-              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+              <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm">
                 <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 01</span>
                 <h3 class="text-base font-bold text-white mt-1">Profile Audit</h3>
                 <p class="text-slate-400 text-xs mt-2 leading-relaxed">
-                  We audit your academic transcripts or corporate achievements, mapping qualifications to spot credentials gaps early on.
+                  Bangarh advisors evaluate past transcripts, portfolios, and credential evaluations to spot potential gaps.
                 </p>
               </div>
             </div>
             <div class="hidden md:block w-[45%]"></div>
           </div>
 
-          <!-- Phase 02 -->
+          <!-- Phase 2 -->
           <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
             <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
               <span class="text-[10px] font-bold text-teal-400">02</span>
             </div>
             <div class="hidden md:block w-[45%]"></div>
             <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
-              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+              <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm">
                 <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 02</span>
                 <h3 class="text-base font-bold text-white mt-1">Strategic Mapping</h3>
                 <p class="text-slate-400 text-xs mt-2 leading-relaxed">
-                  Our advisors shortlist target global destinations, selecting appropriate university intakes or corporate hiring timelines.
+                  Advisors shortlist matching global destinations and target corporate positions matching recruitment timelines.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Phase 03 -->
+          <!-- Phase 3 -->
           <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
             <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
               <span class="text-[10px] font-bold text-teal-400">03</span>
             </div>
             <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
-              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+              <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm">
                 <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 03</span>
                 <h3 class="text-base font-bold text-white mt-1">Dossier Curation</h3>
                 <p class="text-slate-400 text-xs mt-2 leading-relaxed">
-                  We rewrite technical CVs and customize academic SOPs/recommendations to comply with elite selection board parameters.
+                  Advisors audit and structure technical resumes, portfolios, and statements of purpose (SOPs).
                 </p>
               </div>
             </div>
             <div class="hidden md:block w-[45%]"></div>
           </div>
 
-          <!-- Phase 04 -->
+          <!-- Phase 4 -->
           <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
             <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
               <span class="text-[10px] font-bold text-teal-400">04</span>
             </div>
             <div class="hidden md:block w-[45%]"></div>
             <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
-              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+              <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-sm">
                 <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 04</span>
-                <h3 class="text-base font-bold text-white mt-1">Submission & Compliance</h3>
+                <h3 class="text-base font-bold text-white mt-1">Filing & Compliance</h3>
                 <p class="text-slate-400 text-xs mt-2 leading-relaxed">
-                  We coordinate university filings, audit financial flow declarations, and manage mock interviews for final visa clearances.
+                  Advisors run simulated mock visa panel interviews and verify financial declarations for final visa clearances.
                 </p>
               </div>
             </div>
@@ -448,17 +527,17 @@
     </div>
   </section>
 
-  <!-- AUTHORITY PROOF BLOCKQUOTE (AUTHORITY PROOF BLOCKQUOTE) -->
-  <section id="about" class="py-20 bg-slate-900/40 border-t border-slate-900 relative z-10 text-center">
+  <!-- TESTIMONIAL / MATURITY STATEMENT BANNER -->
+  <section class="py-20 bg-slate-900/40 border-t border-slate-900 relative z-10 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <div class="w-12 h-10 mx-auto text-teal-500 text-4xl mb-4 opacity-30"><i class="fa-solid fa-quote-right"></i></div>
-      <blockquote class="text-base sm:text-lg font-light text-slate-300 italic leading-relaxed max-w-2xl mx-auto">
+      <blockquote class="text-base sm:text-lg font-light text-slate-350 italic leading-relaxed max-w-2xl mx-auto">
         "Bangarh Limited does not simply assist with entry procedures; they engineer generational jumps in professional capabilities globally."
       </blockquote>
     </div>
   </section>
 
-  <!-- INTAKE MODULE & FAQ SYSTEM (#contact) -->
+  <!-- INTAKE MODULE & FAQ ACCORDION DECK (#contact) -->
   <section id="contact" class="py-24 bg-slate-950 border-t border-slate-900 relative z-10">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
@@ -472,27 +551,27 @@
           </p>
         </div>
 
-        <div class="relative bg-slate-900/50 border border-slate-800 rounded-sm p-6 sm:p-10 shadow-2xl overflow-hidden backdrop-blur-md">
+        <div class="relative bg-slate-900/40 border border-slate-800/60 rounded-sm p-6 sm:p-10 shadow-2xl overflow-hidden backdrop-blur-md">
           
           <form id="intake-form" class="space-y-5">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <!-- Name Input -->
               <div class="space-y-2">
-                <label for="fullname" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Your Name</label>
+                <label for="fullname" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Your Name</label>
                 <input type="text" id="fullname" name="fullname" required placeholder="John Doe" class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
               </div>
 
               <!-- Email Input -->
               <div class="space-y-2">
-                <label for="email" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Email Address</label>
+                <label for="email" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
                 <input type="email" id="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
               </div>
             </div>
 
             <!-- Objective Dropdown Selector -->
             <div class="space-y-2">
-              <label for="objective" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Objective Target Focus</label>
-              <select id="objective" name="objective" required class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-300 text-xs transition-colors">
+              <label for="objective" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Objective Target Focus</label>
+              <select id="objective" name="objective" required class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-350 text-xs transition-colors">
                 <option value="" disabled selected>Select target focus...</option>
                 <option value="academic">Academic Admission (Higher Education)</option>
                 <option value="corporate">Corporate Career Pivot</option>
@@ -503,8 +582,8 @@
 
             <!-- Background Context Textarea -->
             <div class="space-y-2">
-              <label for="context" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Background Milestone Details</label>
-              <textarea id="context" name="context" rows="4" required placeholder="Summarize your qualifications, GPA / professional years, and preferred launch timeframe..." class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 resize-none transition-colors"></textarea>
+              <label for="context" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Background Milestone Details</label>
+              <textarea id="context" name="context" rows="4" required placeholder="Summarize your current qualifications and target objectives..." class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 resize-none transition-colors"></textarea>
             </div>
 
             <!-- Trigger Button -->
@@ -544,7 +623,7 @@
         <div class="space-y-4" id="faq-accordion-deck">
           
           <!-- Accordion item 1 -->
-          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+          <div class="faq-card bg-slate-900/40 border border-slate-850/60 rounded-sm">
             <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
               <span class="text-xs font-semibold text-white tracking-wide">When are target intake cycles?</span>
               <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
@@ -557,20 +636,20 @@
           </div>
 
           <!-- Accordion item 2 -->
-          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+          <div class="faq-card bg-slate-900/40 border border-slate-850/60 rounded-sm">
             <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
               <span class="text-xs font-semibold text-white tracking-wide">How are academic profile gaps addressed?</span>
               <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-content">
               <p class="px-5 pb-5 text-slate-400 text-xs leading-relaxed border-t border-slate-850/40 pt-4">
-                We align credentials via research project positioning, verified credential evaluations (e.g. WES), custom GMAT/GRE tracking metrics, and targeting institutions offering pathways modules.
+                We align credentials via research project positioning, verified credential evaluations (e.g. WES), GMAT/GRE tracking metrics, and targeting pathways modules.
               </p>
             </div>
           </div>
 
           <!-- Accordion item 3 -->
-          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+          <div class="faq-card bg-slate-900/40 border border-slate-850/60 rounded-sm">
             <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
               <span class="text-xs font-semibold text-white tracking-wide">What is the standard visa processing window?</span>
               <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
@@ -583,7 +662,7 @@
           </div>
 
           <!-- Accordion item 4 -->
-          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+          <div class="faq-card bg-slate-900/40 border border-slate-850/60 rounded-sm">
             <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
               <span class="text-xs font-semibold text-white tracking-wide">How is post-landing support managed?</span>
               <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
@@ -613,7 +692,7 @@
       </div>
 
       <div class="flex items-center space-x-8 text-slate-450">
-        <a href="#gateway" class="hover:text-teal-400 transition-colors">Gateways</a>
+        <a href="#assessment" class="hover:text-teal-400 transition-colors">Pre-Assessment</a>
         <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
         <a href="#timeline" class="hover:text-teal-400 transition-colors">Roadmap</a>
         <a href="#contact" class="hover:text-teal-400 transition-colors">Intake Portal</a>
@@ -626,7 +705,7 @@
     </div>
   </footer>
 
-  <!-- DYNAMIC LOGIC -->
+  <!-- DYNAMIC JAVASCRIPT LOGIC -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       
@@ -709,6 +788,67 @@
           if (!isActive) {
             card.classList.add("active");
           }
+        });
+      });
+
+      // Interactive Profile Pre-Assessment Checker Logic
+      const assessmentBtns = document.querySelectorAll(".assessment-btn");
+      const noticeTitle = document.getElementById("notice-title");
+      const noticeContent = document.getElementById("notice-content");
+      const noticeIcon = document.getElementById("notice-icon");
+
+      const assessmentData = {
+        undergrad: {
+          title: "Admissions Pathway: Undergrad Program",
+          icon: '<i class="fa-solid fa-book-open"></i>',
+          content: `<strong>Preparation Window:</strong> 18-Month Prep. <br>
+                    <strong>Target Parameters:</strong> GPA 3.5+ Equivalents, SAT/ACT diagnostic alignment, comprehensive extracurricular mapping, and target Ivy League placement architectures.`
+        },
+        postgrad: {
+          title: "Admissions Pathway: Postgrad Route",
+          icon: '<i class="fa-solid fa-graduation-cap"></i>',
+          content: `<strong>Preparation Window:</strong> 12-Month Prep. <br>
+                    <strong>Target Parameters:</strong> GMAT/GRE auditing, customized Statement of Purpose (SOP) revision modules, merit-based scholarship engineering, and Russell Group target admissions.`
+        },
+        corporate: {
+          title: "Placement Pathway: Corporate Shift",
+          icon: '<i class="fa-solid fa-briefcase"></i>',
+          content: `<strong>Preparation Window:</strong> 6-Month Sprint. <br>
+                    <strong>Target Parameters:</strong> Data-driven qualifications assessment, ATS-optimized portfolio/resume re-engineering, and direct international sponsor/recruiter mapping.`
+        },
+        executive: {
+          title: "Placement Pathway: Executive Tier",
+          icon: '<i class="fa-solid fa-chess-queen"></i>',
+          content: `<strong>Preparation Window:</strong> Direct Alignment. <br>
+                    <strong>Target Parameters:</strong> Premium LinkedIn / professional re-branding audits, elite mock simulated panel interviews, contract negotiations, and direct C-suite corporate networking channels.`
+        }
+      };
+
+      assessmentBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          // Update active button state
+          assessmentBtns.forEach(b => {
+            b.classList.remove("active-assessment", "border-teal-500/40");
+            b.querySelector("div").classList.remove("text-teal-500");
+            b.querySelector("div").classList.add("text-slate-500");
+          });
+          btn.classList.add("active-assessment", "border-teal-500/40");
+          btn.querySelector("div").classList.remove("text-slate-500");
+          btn.querySelector("div").classList.add("text-teal-500");
+
+          // Update dynamic text with opacity transition
+          const targetPathway = btn.getAttribute("data-pathway");
+          const data = assessmentData[targetPathway];
+          
+          const noticeBox = document.getElementById("pathway-notice-box");
+          noticeBox.style.opacity = "0.2";
+          
+          setTimeout(() => {
+            noticeTitle.textContent = data.title;
+            noticeIcon.innerHTML = data.icon;
+            noticeContent.innerHTML = data.content;
+            noticeBox.style.opacity = "1";
+          }, 150);
         });
       });
 
