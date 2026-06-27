@@ -43,3 +43,10 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
   - [x] Populate the inside of the modals with complete, rich data (IELTS Prep modules, SOP toolkits, ATS resume frameworks).
   - [x] Test modal closing interactions (ESC key, clicking outside the card, Close button).
   - [x] Verify responsive scaling to ensure long detailed text scrolls cleanly inside the modal overlay on mobile screens.
+
+- [x] **Step 9: Align first-look above-the-fold layout explicitly with image_708a61.jpg**
+  - [x] Link 'Syne' and 'Bricolage Grotesque' fonts and extend custom gradients in Tailwind.
+  - [x] Code the precise glassmorphic nav bar with the active glowing underline and inline SVG logo.
+  - [x] Layout the asymmetric hero section matching the exact text wrap and spacing.
+  - [x] Recreate the three floating 3D-perspective metrics cards with matching icons and neon-colored outer rings.
+  - [x] Test overall responsivity across screen sizes to ensure the layout matches image_708a61.jpg.
