@@ -684,7 +684,23 @@
           <p class="text-slate-400 text-xs leading-relaxed max-w-md">
             Log your credentials context below to request a detailed eligibility diagnostic roadmap.
           </p>
+          <!-- Contact detail chips -->
+          <div class="flex flex-col gap-2.5 pt-1">
+            <a href="tel:+447587873484" class="inline-flex items-center gap-2.5 group w-fit">
+              <div class="w-6 h-6 rounded-md bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                <i class="fa-solid fa-phone text-cyan-400 text-[9px]"></i>
+              </div>
+              <span class="font-bricolage text-xs text-slate-400 group-hover:text-cyan-400 transition-colors tracking-wide">+44 7587 873 484</span>
+            </a>
+            <a href="https://maps.google.com/?q=Luton+Town+Centre+LU1+1JU+England" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 group w-fit">
+              <div class="w-6 h-6 rounded-md bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                <i class="fa-solid fa-location-dot text-cyan-400 text-[9px]"></i>
+              </div>
+              <span class="font-bricolage text-xs text-slate-400 group-hover:text-cyan-400 transition-colors">Luton Town Centre, LU1 1JU — England, UK</span>
+            </a>
+          </div>
         </div>
+
 
         <!-- Glowing intake wrapper card -->
         <div class="relative glass-overlay-depth rounded-xl p-6 sm:p-10 shadow-2xl overflow-hidden bg-gradient-to-b from-slate-900/40 to-slate-950/40">
@@ -817,26 +833,95 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 border-t border-white/[0.04] py-12 mt-auto relative z-10 glow-canvas-bottom">
-    <div class="max-w-[90vw] mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0 font-sans">
-      
-      <div class="flex items-center">
-        <img src="assets/logo.png" alt="Bangarh Ltd Logo" class="h-6 object-contain brand-logo-blend opacity-70 hover:opacity-100 transition-all duration-300">
-      </div>
+  <footer class="bg-[#020617] border-t border-white/[0.05] mt-auto relative z-10">
 
-      <div class="flex items-center space-x-8 text-slate-450">
-        <a href="#matcher" class="hover:text-cyan-400 transition-colors">Assessment</a>
-        <a href="#ecosystem" class="hover:text-cyan-400 transition-colors">Platforms</a>
-        <a href="#timeline" class="hover:text-cyan-400 transition-colors">Roadmap</a>
-        <a href="#academy" class="hover:text-cyan-400 transition-colors">Academy</a>
-        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
-      </div>
+    <!-- Top brand strip -->
+    <div class="border-b border-white/[0.04]">
+      <div class="max-w-[90vw] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        
+        <!-- Brand Column -->
+        <div class="space-y-5">
+          <!-- SVG B logo + text (matches navbar) -->
+          <a href="#" class="flex items-center gap-2.5 group w-fit">
+            <svg class="brand-b-icon text-cyan-400" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="2" width="4" height="30" rx="2" fill="currentColor" opacity="0.9"/>
+              <path d="M7 2H18C21.3137 2 24 4.68629 24 8C24 11.3137 21.3137 14 18 14H7V2Z" fill="currentColor" opacity="0.75"/>
+              <path d="M7 14H19C22.866 14 26 17.134 26 21C26 24.866 22.866 28 19 28H7V14Z" fill="currentColor" opacity="0.9"/>
+              <path d="M11 5.5H17.5C19.433 5.5 21 7.067 21 9C21 10.933 19.433 12.5 17.5 12.5H11V5.5Z" fill="#020617" opacity="0.85"/>
+              <path d="M11 17H18.5C20.985 17 23 19.015 23 21.5C23 23.985 20.985 26 18.5 26H11V17Z" fill="#020617" opacity="0.85"/>
+            </svg>
+            <div class="flex flex-col leading-none">
+              <span class="font-bricolage text-[15px] font-bold tracking-[0.02em] text-white">Bangarh</span>
+              <span class="font-bricolage text-[8.5px] font-semibold tracking-[0.28em] text-slate-400 uppercase mt-[1px]">LIMITED</span>
+            </div>
+          </a>
+          <p class="font-bricolage text-xs text-slate-500 leading-relaxed max-w-[220px]">
+            Engineering generational jumps in professional and academic capabilities globally.
+          </p>
+        </div>
 
-      <div>
-        &copy; 2026 Bangarh Limited. All rights reserved.
+        <!-- Office Address Column -->
+        <div class="space-y-4">
+          <h4 class="font-bricolage text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-500">Our Office</h4>
+          <div class="space-y-3">
+            <!-- Location -->
+            <div class="flex items-start gap-3">
+              <div class="mt-0.5 w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/15 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-location-dot text-cyan-400 text-[11px]"></i>
+              </div>
+              <div class="font-bricolage text-xs text-slate-400 leading-relaxed">
+                Luton Town Centre<br>
+                <span class="text-slate-300 font-medium">Luton, Bedfordshire</span><br>
+                <span class="text-slate-300 font-medium">LU1 1JU — England, UK</span>
+              </div>
+            </div>
+            <!-- Phone -->
+            <div class="flex items-center gap-3">
+              <div class="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/15 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-phone text-cyan-400 text-[11px]"></i>
+              </div>
+              <a href="tel:+447587873484" class="font-bricolage text-xs text-slate-400 hover:text-cyan-400 transition-colors tracking-wide">
+                +44 7587 873 484
+              </a>
+            </div>
+            <!-- Map link -->
+            <div class="flex items-center gap-3">
+              <div class="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/15 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-map text-cyan-400 text-[11px]"></i>
+              </div>
+              <a href="https://maps.google.com/?q=Luton+Town+Centre+LU1+1JU+England" target="_blank" rel="noopener noreferrer" class="font-bricolage text-xs text-slate-400 hover:text-cyan-400 transition-colors">
+                View on Google Maps &nbsp;<i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="space-y-4">
+          <h4 class="font-bricolage text-[10px] font-bold uppercase tracking-[0.25em] text-cyan-500">Quick Links</h4>
+          <nav class="space-y-2.5 font-bricolage text-xs text-slate-400">
+            <a href="#matcher" class="block hover:text-cyan-400 transition-colors">Assessment</a>
+            <a href="#ecosystem" class="block hover:text-cyan-400 transition-colors">Solutions</a>
+            <a href="#timeline" class="block hover:text-cyan-400 transition-colors">Roadmap</a>
+            <a href="#academy" class="block hover:text-cyan-400 transition-colors">Programs</a>
+            <a href="#contact" class="block hover:text-cyan-400 transition-colors">Contact</a>
+          </nav>
+        </div>
+
       </div>
-      
     </div>
+
+    <!-- Bottom copyright bar -->
+    <div class="max-w-[90vw] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-bricolage text-[11px] text-slate-600">
+        &copy; 2026 Bangarh Limited. All rights reserved. Registered in England.
+      </p>
+      <div class="flex items-center gap-1.5">
+        <i class="fa-solid fa-shield-halved text-cyan-500/50 text-[11px]"></i>
+        <span class="font-bricolage text-[11px] text-slate-600">Regulated Advisory Services — Luton, UK</span>
+      </div>
+    </div>
+
   </footer>
 
   <!-- DYNAMIC ANIMATED SCRIPT CONTROL -->
