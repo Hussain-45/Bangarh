@@ -205,41 +205,6 @@
     .hero-card-reveal:nth-child(2) { animation-delay: 0.3s; }
     .hero-card-reveal:nth-child(3) { animation-delay: 0.45s; }
 
-    /* ===== EXACT IMAGE MATCH: Hero Stat Cards with Amber Neon Glow Borders ===== */
-    .hero-stat-card {
-      background: linear-gradient(145deg, #0d1a3a 0%, #080f26 60%, #040b1e 100%);
-      border: 1.5px solid rgba(245, 158, 11, 0.55);
-      box-shadow:
-        0 0 18px rgba(245, 158, 11, 0.25),
-        0 0 6px rgba(245, 158, 11, 0.15),
-        inset 0 0 30px rgba(245, 158, 11, 0.04),
-        0 20px 60px rgba(0, 0, 0, 0.6);
-      border-radius: 18px;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.25,1,0.5,1), border-color 0.4s ease;
-      will-change: transform;
-    }
-    .hero-stat-card:hover {
-      box-shadow:
-        0 0 30px rgba(245, 158, 11, 0.4),
-        0 0 12px rgba(245, 158, 11, 0.25),
-        inset 0 0 40px rgba(245, 158, 11, 0.06),
-        0 24px 70px rgba(0, 0, 0, 0.7);
-      border-color: rgba(245, 158, 11, 0.8);
-    }
-    .hero-stat-card .stat-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F59E0B;
-      flex-shrink: 0;
-    }
     /* Request Demo pill button - exact image match */
     .request-demo-btn {
       font-family: 'Bricolage Grotesque', sans-serif;
@@ -368,72 +333,43 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: FLOATING STAT CARDS — EXACT IMAGE MATCH (amber neon border glow) -->
-      <div class="lg:col-span-5 relative flex flex-col gap-5 lg:pl-4 lg:pt-8">
+      <!-- RIGHT COLUMN BLOCK: FLOATING INTERACTIVE METRICS -->
+      <div class="lg:col-span-5 relative grid grid-cols-1 sm:grid-cols-2 gap-4 lg:pl-6">
         
-        <!-- Card 1: Student Placements (top-left, slight CCW tilt) -->
-        <div class="hero-card-reveal hero-stat-card p-6 lg:p-7 transform lg:rotate-[-3deg] lg:translate-x-[-12px] hover:scale-[1.04] cursor-default" style="animation-delay:0.15s">
-          <!-- Icon + label row -->
-          <div class="flex items-start justify-between mb-5">
-            <div class="stat-icon-wrap">
-              <!-- Graduation cap icon -->
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-              </svg>
-            </div>
-            <div class="text-right">
-              <span class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase block">Student</span>
-              <span class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase block">Placements</span>
-            </div>
+        <!-- Card 1: Student Placements -->
+        <div class="hero-card-reveal bg-[#0B132B]/40 backdrop-blur-xl border border-white/[0.06] p-6 rounded-2xl shadow-xl transform lg:rotate-[-2deg] hover:scale-[1.03] transition-all duration-300 group relative overflow-hidden animated-glow-card">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl"></div>
+          <div class="h-8 w-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/></svg>
           </div>
-          <!-- Big number -->
-          <div class="font-syne text-[2.6rem] font-extrabold text-white tracking-tight leading-none">8,500+</div>
+          <div class="font-syne text-2xl font-bold text-white tracking-wide">8,500+</div>
+          <div class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase mt-1">Student Placements</div>
         </div>
 
-        <!-- Card 2: Corporate Partners (top-right, slight CW tilt, offset right) -->
-        <div class="hero-card-reveal hero-stat-card p-6 lg:p-7 transform lg:rotate-[2.5deg] lg:translate-x-[18px] lg:translate-y-[-10px] hover:scale-[1.04] cursor-default self-end w-full sm:max-w-[85%]" style="animation-delay:0.3s">
-          <div class="flex items-start justify-between mb-5">
-            <div class="stat-icon-wrap">
-              <!-- Building/Corporate icon -->
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-1 4h1m-4-4h1"/>
-              </svg>
-            </div>
-            <div class="text-right">
-              <span class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase block">Corporate</span>
-              <span class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase block">Partners</span>
-            </div>
+        <!-- Card 2: Corporate Partners -->
+        <div class="hero-card-reveal bg-[#0B132B]/40 backdrop-blur-xl border border-white/[0.06] p-6 rounded-2xl shadow-xl transform lg:translate-y-4 lg:rotate-[1deg] hover:scale-[1.03] transition-all duration-300 group relative overflow-hidden animated-glow-card">
+          <div class="h-8 w-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg>
           </div>
-          <div class="font-syne text-[2.6rem] font-extrabold text-white tracking-tight leading-none">420+</div>
+          <div class="font-syne text-2xl font-bold text-white tracking-wide">420+</div>
+          <div class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase mt-1">Corporate Partners</div>
         </div>
 
-        <!-- Card 3: Global Reach (bottom-center, slight CCW tilt, dots row) -->
-        <div class="hero-card-reveal hero-stat-card p-6 lg:p-7 transform lg:rotate-[-1.5deg] lg:translate-x-[4px] lg:translate-y-[-6px] hover:scale-[1.04] cursor-default" style="animation-delay:0.45s">
-          <div class="flex items-start justify-between mb-4">
-            <div class="stat-icon-wrap">
-              <!-- Globe icon -->
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-              </svg>
+        <!-- Card 3: Global Reach -->
+        <div class="hero-card-reveal bg-[#0B132B]/40 backdrop-blur-xl border border-white/[0.06] p-6 rounded-2xl shadow-xl sm:col-span-2 lg:translate-y-8 lg:rotate-[-1deg] hover:scale-[1.03] transition-all duration-300 group relative overflow-hidden animated-glow-card">
+          <div class="flex items-center justify-between mb-4">
+            <div class="h-8 w-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h2m4-3.5a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <!-- Dot indicators (from image: 4 dots, mix of cyan+amber) -->
-            <div class="flex gap-1 items-center">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_4px_#22d3ee]"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_4px_#22d3ee]"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_4px_#22d3ee]"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_4px_#f59e0b]"></span>
+            <div class="flex gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
             </div>
           </div>
-          <div class="flex items-baseline gap-2">
-            <div class="font-syne text-[2.6rem] font-extrabold text-white tracking-tight leading-none">35</div>
-            <div>
-              <div class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase">Global</div>
-              <div class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase">Reach</div>
-            </div>
-          </div>
-          <div class="font-bricolage text-[9px] font-semibold tracking-[0.2em] text-slate-500 uppercase mt-2">Countries</div>
+          <div class="font-syne text-2xl font-bold text-white tracking-wide">35 Countries</div>
+          <div class="font-bricolage text-[9px] font-bold text-slate-500 tracking-widest uppercase mt-1">Global Reach Infrastructure</div>
         </div>
 
       </div>
