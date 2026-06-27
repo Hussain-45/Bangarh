@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangarh Limited | Premium Placement & Career Trajectory Engineers</title>
+  <meta name="description" content="Engineering generational jumps in professional and academic capabilities globally. Access our elite placement gateways and strategic roadmap.">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              900: '#0F172A',
+              950: '#020617',
+            },
+            teal: {
+              400: '#2DD4BF',
+              500: '#14B8A6',
+              600: '#0D9488',
+              700: '#0F766E',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0d9488;
+    }
+
+    /* Easing interactions */
+    .glow-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glow-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.15), 0 8px 10px -6px rgba(13, 148, 136, 0.15);
+      border-color: rgba(13, 148, 136, 0.4);
+    }
+
+    .glass-header {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .hero-radial {
+      background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15), transparent 50%),
+                  radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.5), #020617);
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Accordion transitions */
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-card.active .faq-content {
+      max-height: 200px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-card.active .faq-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-teal-500 selection:text-slate-950 overflow-x-hidden min-h-screen flex flex-col">
+
+  <!-- STICKY NAVIGATION HEADER (STICKY NAV RECEPTACLE) -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent py-5">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      
+      <!-- Brand Logo Emblem -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-sm bg-teal-650 flex items-center justify-center shadow-lg shadow-teal-600/20 group-hover:scale-105 transition-transform duration-300">
+          <span class="font-sans font-extrabold text-lg text-slate-950">B</span>
+        </div>
+        <span class="font-sans font-bold text-sm tracking-widest text-white uppercase group-hover:text-teal-400 transition-colors duration-300">
+          BANGARH <span class="text-teal-500">LIMITED</span>
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-400">
+        <a href="#gateway" class="hover:text-teal-400 transition-colors">Primary Gateways</a>
+        <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
+        <a href="#timeline" class="hover:text-teal-400 transition-colors">Milestones</a>
+        <a href="#contact" class="hover:text-teal-400 transition-colors">Evaluation Desk</a>
+        <a href="#contact" class="px-4 py-2 border border-teal-500/30 hover:border-teal-500 text-teal-400 hover:text-white bg-teal-500/5 transition-all duration-300 rounded-sm">Book Consultation</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden text-xl text-slate-400 hover:text-teal-400 focus:outline-none z-50">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden fixed inset-0 bg-slate-950/98 backdrop-blur-xl z-40 flex flex-col justify-center items-center space-y-8 text-sm font-semibold uppercase tracking-widest">
+      <a href="#gateway" class="mobile-nav-link text-slate-300 hover:text-teal-400">Primary Gateways</a>
+      <a href="#services" class="mobile-nav-link text-slate-300 hover:text-teal-400">Services</a>
+      <a href="#timeline" class="mobile-nav-link text-slate-300 hover:text-teal-400">Milestones</a>
+      <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-teal-400">Evaluation Desk</a>
+      <a href="#contact" class="mobile-nav-link px-6 py-2.5 border border-teal-500 text-teal-450 hover:bg-teal-500/10">Book Consultation</a>
+    </div>
+  </header>
+
+  <!-- HIGH-IMPACT HERO ARENA -->
+  <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-radial overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Hero Left Text Column -->
+      <div class="lg:col-span-7 space-y-6 animate-fade-in-up">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-teal-600/10 border border-teal-500/20 text-teal-400 text-[10px] font-bold uppercase tracking-wider">
+          Your Pathway to Global Excellence
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.15]">
+          Architecting Elite Pathways in <br>
+          <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-teal-400">Education & Careers</span>
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">
+          Curated, premium global advisory designed to guide qualified candidates to top-tier international institutions and strategic corporate placement ecosystems.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#contact" class="px-6 py-3.5 bg-teal-600 hover:bg-teal-500 text-slate-950 font-bold text-xs uppercase tracking-widest transition-colors rounded-sm shadow-lg shadow-teal-600/25">
+            Get Started Free
+          </a>
+          <a href="#services" class="px-6 py-3.5 border border-slate-700 hover:border-teal-500 text-slate-350 hover:text-teal-400 font-bold text-xs uppercase tracking-widest transition-all rounded-sm">
+            Explore Offerings
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Right Metrics Dashboard Grid -->
+      <div class="lg:col-span-5 w-full">
+        <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+          
+          <!-- Metric Card 1 -->
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">98%</div>
+            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Visa & Admission Success</div>
+          </div>
+
+          <!-- Metric Card 2 -->
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">5,000+</div>
+            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Ambitious Mentored</div>
+          </div>
+
+          <!-- Metric Card 3 -->
+          <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm backdrop-blur-md">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">12+</div>
+            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1">Placement Regions</div>
+          </div>
+
+          <!-- Metric Card 4 (Teal Accent Highlight) -->
+          <div class="p-6 bg-teal-900/20 border border-teal-500/30 rounded-sm shadow-lg shadow-teal-500/5 backdrop-blur-md">
+            <div class="text-2xl sm:text-3xl font-extrabold text-teal-400">24/7</div>
+            <div class="text-[10px] font-bold text-teal-500 uppercase tracking-wider mt-1">Strategic Access</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE REGIONAL GATEWAY GRID (#gateway) -->
+  <section id="gateway" class="py-24 bg-slate-950 border-t border-slate-900 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Destination matrices</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Primary Global Destinations</h2>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          Unlock pathways in major study destinations and premium global job markets.
+        </p>
+      </div>
+
+      <!-- 4-Column Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- UK Card -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-2xl text-slate-400"><i class="fa-solid fa-building-columns"></i></span>
+              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">1-Year Masters</span>
+            </div>
+            <h3 class="text-base font-bold text-white">United Kingdom</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Access Russell Group placements, simplified post-study Graduate Route setups, and localized relocation compliance.
+            </p>
+          </div>
+          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
+            Graduate Route Paths
+          </div>
+        </div>
+
+        <!-- US Card -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-2xl text-slate-400"><i class="fa-solid fa-flag-usa"></i></span>
+              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Ivy League</span>
+            </div>
+            <h3 class="text-base font-bold text-white">United States</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Target top Ivy League placements and optimize strategic STEM OPT extensions inside premier startup hubs.
+            </p>
+          </div>
+          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
+            STEM Extension Tracks
+          </div>
+        </div>
+
+        <!-- Canada Card -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-2xl text-slate-400"><i class="fa-solid fa-map-pin"></i></span>
+              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Express Entry</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Canada</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Structured mapping for PGWP tracking, SDS eligibility optimization, and streamlined Express Entry points matching.
+            </p>
+          </div>
+          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
+            PR Pipeline Mapping
+          </div>
+        </div>
+
+        <!-- Europe Card -->
+        <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[240px]">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-2xl text-slate-400"><i class="fa-solid fa-euro-sign"></i></span>
+              <span class="text-[9px] font-bold uppercase bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Low-Tuition</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Europe & Global Hubs</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              English-taught programs in Germany, France, or Singapore, with localized corporate recruitment channel alignments.
+            </p>
+          </div>
+          <div class="text-[10px] font-semibold text-teal-400 uppercase tracking-widest pt-4 border-t border-slate-850 mt-4">
+            Placement Clusters
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE COMPREHENSIVE SERVICES MATRIX (#services) -->
+  <section id="services" class="py-24 bg-slate-900/40 border-t border-slate-900 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Bespoke advisory</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Comprehensive Services Matrix</h2>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          Strategic operational cards mapping the exact vectors of our placement support.
+        </p>
+      </div>
+
+      <!-- 3-Column Service Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
+          <div class="space-y-4">
+            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-graduation-cap"></i></span>
+            <h3 class="text-lg font-bold text-white">Academic Guidance</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Strategic university selection matching your academic credentials. We direct dossier building, course shortlists, custom statement of purpose (SOP) optimization, and secure application filing.
+            </p>
+          </div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
+            Admissions Desk
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
+          <div class="space-y-4">
+            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-briefcase"></i></span>
+            <h3 class="text-lg font-bold text-white">Career Consultation</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Audit corporate trajectories and mapping placement calendars. We rewrite technical CVs, build LinkedIn profiles for search visibility, and conduct executive mock interviews.
+            </p>
+          </div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
+            Placement Desk
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-8 bg-slate-900/50 border border-slate-800 rounded-sm glow-hover flex flex-col justify-between min-h-[320px] backdrop-blur-md">
+          <div class="space-y-4">
+            <span class="text-teal-500 text-3xl"><i class="fa-solid fa-circle-check"></i></span>
+            <h3 class="text-lg font-bold text-white">Visa & Compliance</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Ensure flawless processing. We audit financial sources, guide document compilation, verify regulatory guidelines, and run simulate consular mock panel interviews.
+            </p>
+          </div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-teal-400 mt-6 pt-4 border-t border-slate-800/60">
+            Compliance Desk
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LIVE SUCCESS TIMELINE (#timeline) -->
+  <section id="timeline" class="py-24 bg-slate-950 border-t border-slate-900 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Roadmap timeline</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Live Success Roadmap</h2>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+          Four distinct execution phases structured to launch your global career and education.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline -->
+      <div class="relative w-full max-w-3xl mx-auto">
+        <!-- Vertical connector line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-600 via-slate-800 to-slate-950 transform md:-translate-x-1/2"></div>
+        
+        <!-- Timeline steps -->
+        <div class="space-y-12">
+          
+          <!-- Phase 01 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
+            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
+              <span class="text-[10px] font-bold text-teal-400">01</span>
+            </div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
+              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+                <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 01</span>
+                <h3 class="text-base font-bold text-white mt-1">Profile Audit</h3>
+                <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                  We audit your academic transcripts or corporate achievements, mapping qualifications to spot credentials gaps early on.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
+          </div>
+
+          <!-- Phase 02 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
+            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
+              <span class="text-[10px] font-bold text-teal-400">02</span>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
+              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+                <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 02</span>
+                <h3 class="text-base font-bold text-white mt-1">Strategic Mapping</h3>
+                <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                  Our advisors shortlist target global destinations, selecting appropriate university intakes or corporate hiring timelines.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 03 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
+            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
+              <span class="text-[10px] font-bold text-teal-400">03</span>
+            </div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right mt-1 md:mt-0">
+              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+                <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 03</span>
+                <h3 class="text-base font-bold text-white mt-1">Dossier Curation</h3>
+                <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                  We rewrite technical CVs and customize academic SOPs/recommendations to comply with elite selection board parameters.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
+          </div>
+
+          <!-- Phase 04 -->
+          <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between">
+            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-teal-500 flex items-center justify-center transform -translate-x-1/2 z-10">
+              <span class="text-[10px] font-bold text-teal-400">04</span>
+            </div>
+            <div class="hidden md:block w-[45%]"></div>
+            <div class="w-full md:w-[45%] pl-10 md:pl-0 mt-1 md:mt-0">
+              <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-sm">
+                <span class="text-[9px] font-bold uppercase tracking-wider text-teal-500">Phase 04</span>
+                <h3 class="text-base font-bold text-white mt-1">Submission & Compliance</h3>
+                <p class="text-slate-400 text-xs mt-2 leading-relaxed">
+                  We coordinate university filings, audit financial flow declarations, and manage mock interviews for final visa clearances.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AUTHORITY PROOF BLOCKQUOTE (AUTHORITY PROOF BLOCKQUOTE) -->
+  <section id="about" class="py-20 bg-slate-900/40 border-t border-slate-900 relative z-10 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="w-12 h-10 mx-auto text-teal-500 text-4xl mb-4 opacity-30"><i class="fa-solid fa-quote-right"></i></div>
+      <blockquote class="text-base sm:text-lg font-light text-slate-300 italic leading-relaxed max-w-2xl mx-auto">
+        "Bangarh Limited does not simply assist with entry procedures; they engineer generational jumps in professional capabilities globally."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- INTAKE MODULE & FAQ SYSTEM (#contact) -->
+  <section id="contact" class="py-24 bg-slate-950 border-t border-slate-900 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Intake Form Area (Left / Column 7) -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="space-y-3">
+          <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Intake evaluation</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Strategic Evaluation Intake</h2>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-md">
+            Log your credentials context below to request a detailed eligibility diagnostic roadmap.
+          </p>
+        </div>
+
+        <div class="relative bg-slate-900/50 border border-slate-800 rounded-sm p-6 sm:p-10 shadow-2xl overflow-hidden backdrop-blur-md">
+          
+          <form id="intake-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Name Input -->
+              <div class="space-y-2">
+                <label for="fullname" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Your Name</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="John Doe" class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
+              </div>
+
+              <!-- Email Input -->
+              <div class="space-y-2">
+                <label for="email" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
+              </div>
+            </div>
+
+            <!-- Objective Dropdown Selector -->
+            <div class="space-y-2">
+              <label for="objective" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Objective Target Focus</label>
+              <select id="objective" name="objective" required class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-300 text-xs transition-colors">
+                <option value="" disabled selected>Select target focus...</option>
+                <option value="academic">Academic Admission (Higher Education)</option>
+                <option value="corporate">Corporate Career Pivot</option>
+                <option value="visa">Visa Advisory</option>
+                <option value="general">General Growth</option>
+              </select>
+            </div>
+
+            <!-- Background Context Textarea -->
+            <div class="space-y-2">
+              <label for="context" class="block text-[10px] font-bold uppercase tracking-widest text-slate-450">Background Milestone Details</label>
+              <textarea id="context" name="context" rows="4" required placeholder="Summarize your qualifications, GPA / professional years, and preferred launch timeframe..." class="w-full px-4 py-3 rounded-sm bg-slate-950 border border-slate-800 focus:border-teal-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 resize-none transition-colors"></textarea>
+            </div>
+
+            <!-- Trigger Button -->
+            <div class="pt-2">
+              <button type="submit" class="w-full py-4 bg-teal-600 hover:bg-teal-500 active:bg-teal-700 text-slate-950 font-bold text-xs uppercase tracking-widest transition-colors rounded-sm shadow-lg shadow-teal-600/10">
+                Submit Secure Application
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Overlay -->
+          <div id="success-overlay" class="hidden absolute inset-0 bg-slate-950 z-20 flex flex-col justify-center items-center p-8 text-center space-y-6">
+            <div class="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 text-2xl shadow-xl shadow-teal-500/5">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="space-y-2 max-w-sm">
+              <h3 class="font-sans font-bold text-base text-white">Evaluation Logged</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Your credentials milestone outline has been saved. A strategic placement planner from Bangarh Limited will analyze your target options and contact you within 24 business hours.
+              </p>
+            </div>
+            <button id="reset-form-btn" class="px-5 py-2 border border-slate-800 hover:border-teal-500/30 text-slate-450 hover:text-teal-400 text-[10px] font-semibold uppercase tracking-wider transition-all rounded-sm">
+              Submit New Query
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FAQ System Area (Right / Column 5) -->
+      <div class="lg:col-span-5 space-y-6 lg:mt-0 mt-8">
+        <div class="space-y-2">
+          <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-500">Inquiry desk</span>
+          <h2 class="text-xl font-bold text-white">Frequently Asked Inquiries</h2>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion-deck">
+          
+          <!-- Accordion item 1 -->
+          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+            <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
+              <span class="text-xs font-semibold text-white tracking-wide">When are target intake cycles?</span>
+              <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-content">
+              <p class="px-5 pb-5 text-slate-400 text-xs leading-relaxed border-t border-slate-850/40 pt-4">
+                Primary intakes fall in September (Fall) and January (Spring) for studies. Recruitment calendars for corporations are mapped quarterly, with peak filings happening early in the year.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion item 2 -->
+          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+            <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
+              <span class="text-xs font-semibold text-white tracking-wide">How are academic profile gaps addressed?</span>
+              <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-content">
+              <p class="px-5 pb-5 text-slate-400 text-xs leading-relaxed border-t border-slate-850/40 pt-4">
+                We align credentials via research project positioning, verified credential evaluations (e.g. WES), custom GMAT/GRE tracking metrics, and targeting institutions offering pathways modules.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion item 3 -->
+          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+            <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
+              <span class="text-xs font-semibold text-white tracking-wide">What is the standard visa processing window?</span>
+              <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-content">
+              <p class="px-5 pb-5 text-slate-400 text-xs leading-relaxed border-t border-slate-850/40 pt-4">
+                Visa schedules scale based on destination. The UK averages 3-4 weeks under standard tracks; the US requires active interview booking, scaling 2-5 months; Canada ranges 8-16 weeks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Accordion item 4 -->
+          <div class="faq-card bg-slate-900/50 border border-slate-800 rounded-sm">
+            <button class="w-full p-5 flex items-center justify-between text-left focus:outline-none faq-trigger">
+              <span class="text-xs font-semibold text-white tracking-wide">How is post-landing support managed?</span>
+              <span class="text-teal-500 text-xs faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-content">
+              <p class="px-5 pb-5 text-slate-400 text-xs leading-relaxed border-t border-slate-850/40 pt-4">
+                We bridge your relocation through temporary accommodation search guides, compliance reporting (bank/BRP setup), and connecting you with active alumni or professional job boards.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-12 mt-auto relative z-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-7 h-7 bg-teal-605 rounded-sm bg-teal-600 flex items-center justify-center">
+          <span class="font-sans font-extrabold text-sm text-slate-950">B</span>
+        </div>
+        <span class="tracking-widest uppercase text-slate-400 font-semibold">Bangarh Limited</span>
+      </div>
+
+      <div class="flex items-center space-x-8 text-slate-450">
+        <a href="#gateway" class="hover:text-teal-400 transition-colors">Gateways</a>
+        <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
+        <a href="#timeline" class="hover:text-teal-400 transition-colors">Roadmap</a>
+        <a href="#contact" class="hover:text-teal-400 transition-colors">Intake Portal</a>
+      </div>
+
+      <div>
+        &copy; 2026 Bangarh Limited. All rights reserved.
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- DYNAMIC LOGIC -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // Header sticky state transition on scroll
+      const header = document.getElementById("main-header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 40) {
+          header.classList.add("glass-header", "py-4", "border-slate-900/60");
+          header.classList.remove("py-5", "border-transparent");
+        } else {
+          header.classList.remove("glass-header", "py-4", "border-slate-900/60");
+          header.classList.add("py-5", "border-transparent");
+        }
+      });
+
+      // Mobile Menu Drawer toggles
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileDrawer = document.getElementById("mobile-drawer");
+      const drawerLinks = document.querySelectorAll(".mobile-nav-link");
+
+      mobileBtn.addEventListener("click", () => {
+        const isHidden = mobileDrawer.classList.contains("hidden");
+        if (isHidden) {
+          mobileDrawer.classList.remove("hidden");
+          mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+          document.body.classList.add("overflow-hidden");
+        } else {
+          mobileDrawer.classList.add("hidden");
+          mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+
+      drawerLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileDrawer.classList.add("hidden");
+          mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          document.body.classList.remove("overflow-hidden");
+        });
+      });
+
+      // Form submission triggers success overlay
+      const form = document.getElementById("intake-form");
+      const successOverlay = document.getElementById("success-overlay");
+      const resetBtn = document.getElementById("reset-form-btn");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const objective = document.getElementById("objective").value;
+        const context = document.getElementById("context").value.trim();
+
+        if (name && email && objective && context) {
+          console.log("Strategic Onboarding Submit:", { name, email, objective, context });
+          successOverlay.classList.remove("hidden");
+        }
+      });
+
+      resetBtn.addEventListener("click", () => {
+        form.reset();
+        successOverlay.classList.add("hidden");
+      });
+
+      // Accordion FAQ Toggles
+      const faqTriggerButtons = document.querySelectorAll(".faq-trigger");
+
+      faqTriggerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".faq-card");
+          const isActive = card.classList.contains("active");
+
+          // Close other open cards
+          document.querySelectorAll(".faq-card").forEach(c => {
+            c.classList.remove("active");
+          });
+
+          // Toggle current card
+          if (!isActive) {
+            card.classList.add("active");
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
