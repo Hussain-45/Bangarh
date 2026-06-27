@@ -107,6 +107,20 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
 - [x] **Step 5: Test mobile browser links to ensure cross-app intent mapping works perfectly**
   - [x] Implement the mobile-intent button linking direct to the UPI app scheme upi://pay on small devices.
 
+---
+
+## Repository Structure Overhaul for GitHub Pages
+
+- [x] **Step 1: Relocate index.html to repository root**
+  - [x] Copy public/index.html to /index.html.
+- [x] **Step 2: Relocate local assets to repository root**
+  - [x] Copy public/consulting_brief.mp4 to /consulting_brief.mp4.
+- [x] **Step 3: Update local asset path references**
+  - [x] Verify index.html resolves ./consulting_brief.mp4 correctly relative to root.
+- [x] **Step 4: Execute local preview verification check**
+  - [x] Ensure root index.html renders the portal and plays local video asset with no broken paths.
+
+
 
 
 
