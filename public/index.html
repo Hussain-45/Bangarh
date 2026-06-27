@@ -154,17 +154,6 @@
       background: rgba(6, 182, 212, 0.04) !important;
     }
 
-    /* Animated ambient canvas particle overlay */
-    #particle-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.35;
-    }
 
     /* Smooth section reveal animation */
     .reveal-section {
@@ -230,22 +219,77 @@
       height: 34px;
       flex-shrink: 0;
     }
+    /* ================================================================
+       AURORA PULSE ENGINE — 25s looping ambient background animation
+    ================================================================ */
+    @keyframes auroraMove {
+      0%   { transform: translate(0px, 0px)    scale(1);    }
+      25%  { transform: translate(45px, -65px) scale(1.18); }
+      50%  { transform: translate(20px, 30px)  scale(0.92); }
+      75%  { transform: translate(-35px, -20px) scale(1.08); }
+      100% { transform: translate(0px, 0px)    scale(1);    }
+    }
+    @keyframes auroraMove2 {
+      0%   { transform: translate(0px, 0px)     scale(1);    }
+      33%  { transform: translate(-50px, 40px)  scale(1.12); }
+      66%  { transform: translate(30px, -30px)  scale(0.88); }
+      100% { transform: translate(0px, 0px)     scale(1);    }
+    }
+    @keyframes auroraMove3 {
+      0%   { transform: translate(0px, 0px)     scale(1);    }
+      40%  { transform: translate(25px, 50px)   scale(1.06); }
+      80%  { transform: translate(-20px, -40px) scale(0.95); }
+      100% { transform: translate(0px, 0px)     scale(1);    }
+    }
+    .animate-aurora-1 { animation: auroraMove  25s infinite ease-in-out; }
+    .animate-aurora-2 { animation: auroraMove2 30s infinite ease-in-out; animation-delay: -8s; }
+    .animate-aurora-3 { animation: auroraMove3 20s infinite ease-in-out; animation-delay: -14s; }
+    .animate-aurora-4 { animation: auroraMove  35s infinite ease-in-out; animation-delay: -5s; }
+
+    /* Background particle canvas — full page, behind all UI */
+    #bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 1;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden min-h-screen flex flex-col relative glow-canvas-top">
+<body class="bg-[#020617] text-slate-200 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden min-h-screen relative">
 
-  <!-- Animated Particle Canvas Overlay -->
-  <canvas id="particle-canvas"></canvas>
-
-  <!-- BACKGROUND DECORATIONS -->
-  <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-    <div class="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-cyan-950/10 blur-[130px] opacity-45"></div>
-    <div class="absolute bottom-[20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-amber-950/10 blur-[150px] opacity-35"></div>
-    <!-- Extra mid glow accent -->
-    <div class="absolute top-[55%] right-[25%] w-[30vw] h-[30vw] rounded-full bg-cyan-500/[0.03] blur-[100px] opacity-60"></div>
+  <!-- ================================================================
+       LAYER 0: AURORA AMBIENT GRADIENT MESH — animate-aurora-* classes
+       These giant blurred radial orbs shift position slowly on a 25-30s
+       loop, creating the luminous deep-space ambient lighting effect.
+  ================================================================ -->
+  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index:0">
+    <!-- Primary cyan aurora orb — top right -->
+    <div class="absolute top-[-15%] right-[-10%] w-[700px] h-[700px] rounded-full bg-cyan-500/[0.08] blur-[160px] animate-aurora-1" style="mix-blend-mode:screen"></div>
+    <!-- Secondary blue aurora orb — mid left -->
+    <div class="absolute top-[35%] left-[-12%] w-[550px] h-[550px] rounded-full bg-blue-600/[0.06] blur-[140px] animate-aurora-2" style="mix-blend-mode:screen"></div>
+    <!-- Tertiary amber aurora orb — bottom center -->
+    <div class="absolute bottom-[-5%] left-[30%] w-[600px] h-[600px] rounded-full bg-amber-500/[0.04] blur-[150px] animate-aurora-3" style="mix-blend-mode:screen"></div>
+    <!-- Subtle violet accent orb — bottom right -->
+    <div class="absolute bottom-[15%] right-[-5%] w-[400px] h-[400px] rounded-full bg-indigo-600/[0.05] blur-[130px] animate-aurora-4" style="mix-blend-mode:screen"></div>
   </div>
 
-  <!-- FLOATING NAVIGATION BAR FROM IMAGE_708a61.jpg -->
+  <!-- ================================================================
+       LAYER 1: CONNECTED-NODE PARTICLE CANVAS
+       Hardware-accelerated canvas behind all UI panels. Renders drifting
+       star nodes that draw faint line pathways to close neighbours.
+  ================================================================ -->
+  <canvas id="bg-particles"></canvas>
+
+  <!-- ================================================================
+       LAYER 2: ALL SITE CONTENT — z-index above aurora + canvas
+  ================================================================ -->
+  <div class="relative flex flex-col min-h-screen" style="z-index:10">
+
+  <!-- FLOATING NAVIGATION BAR -->
   <header id="main-header" class="fixed top-4 left-0 right-0 z-50 w-[90vw] max-w-7xl mx-auto transition-all duration-300">
     <div class="w-full bg-[#080e22]/60 backdrop-blur-xl border border-white/[0.07] rounded-2xl px-5 sm:px-7 py-3.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
       
@@ -924,6 +968,9 @@
 
   </footer>
 
+  </div><!-- /LAYER 2: SITE CONTENT -->
+
+
   <!-- DYNAMIC ANIMATED SCRIPT CONTROL -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1375,54 +1422,99 @@
       // Highlight first nav link on load
       navLinks[0]?.classList.add("nav-active");
 
-      // --- AMBIENT PARTICLE CANVAS ---
-      const canvas = document.getElementById("particle-canvas");
-      const ctx = canvas.getContext("2d");
-      let particles = [];
+    }); // end DOMContentLoaded
+  </script>
 
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  <!-- ================================================================
+       CONNECTED-NODE PARTICLE MATRIX ENGINE
+       Renders star nodes that drift and connect with faint lines
+       when within a 120px proximity threshold.
+  ================================================================ -->
+  <script>
+    (function() {
+      const canvas = document.getElementById('bg-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, particles = [];
+      const COUNT       = 90;    // total nodes
+      const MAX_DIST    = 120;   // px — connection threshold
+      const SPEED       = 0.28;  // drift speed multiplier
+
+      // Node color palette — cyan, blue, amber variants
+      const COLORS = [
+        '6,182,212',    // cyan-500
+        '34,211,238',   // cyan-400
+        '96,165,250',   // blue-400
+        '245,158,11',   // amber-500
+        '148,163,184',  // slate-400
+      ];
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
       }
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
+      window.addEventListener('resize', resize);
+      resize();
 
-      class Particle {
-        constructor() {
-          this.reset();
-        }
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.radius = Math.random() * 1.2 + 0.3;
-          this.speedX = (Math.random() - 0.5) * 0.25;
-          this.speedY = (Math.random() - 0.5) * 0.25;
-          this.opacity = Math.random() * 0.5 + 0.1;
-          this.color = Math.random() > 0.6 ? "6,182,212" : Math.random() > 0.5 ? "245,158,11" : "148,163,184";
+      class Node {
+        constructor() { this.init(); }
+        init() {
+          this.x  = Math.random() * W;
+          this.y  = Math.random() * H;
+          this.vx = (Math.random() - 0.5) * SPEED;
+          this.vy = (Math.random() - 0.5) * SPEED;
+          this.r  = Math.random() * 1.4 + 0.5;
+          this.op = Math.random() * 0.45 + 0.15;
+          this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
         }
         update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+          this.x += this.vx;
+          this.y += this.vy;
+          // Soft bounce off viewport edges
+          if (this.x < 0)  { this.x = 0;  this.vx *= -1; }
+          if (this.x > W)  { this.x = W;  this.vx *= -1; }
+          if (this.y < 0)  { this.y = 0;  this.vy *= -1; }
+          if (this.y > H)  { this.y = H;  this.vy *= -1; }
         }
         draw() {
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color},${this.op})`;
           ctx.fill();
         }
       }
 
-      for (let i = 0; i < 90; i++) particles.push(new Particle());
+      // Build the particle pool
+      for (let i = 0; i < COUNT; i++) particles.push(new Node());
 
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animateParticles);
+      function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              // Fade line opacity with distance
+              const alpha = (1 - dist / MAX_DIST) * 0.12;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(6,182,212,${alpha})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
       }
-      animateParticles();
 
-    });
+      function loop() {
+        ctx.clearRect(0, 0, W, H);
+        drawLines();
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
   </script>
 
   <!-- FLOATING EXTENDED DETAILS MODAL OVERLAYS -->
