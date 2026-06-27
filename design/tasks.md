@@ -75,4 +75,22 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
 - [x] **Step 5: Execute comprehensive browser simulation tests to verify all tap and click states work flawlessly on both mobile and desktop**
   - [x] Ensure correct styling, layout responsiveness, and full interactivity coverage.
 
+---
+
+## Programs & Digital Toolkits Button Actions
+
+- [x] **Step 1: Assign unique IDs or data attributes to the cards and action buttons in the HTML layout**
+  - [x] Assign IDs to reserve seat, download bundle, and inquire buttons in #academy section.
+- [x] **Step 2: Inject the JavaScript event listeners handling automated scrolling, input updates, and checkout delays**
+  - [x] Link Reserve Seat to auto-select 'test-prep' option and smooth scroll.
+  - [x] Link Inquire for Campus to auto-select 'b2b-institutional' option, apply neon highlight flash, and smooth scroll.
+  - [x] Implement checkout delay and text loading spinner on Download Bundle.
+- [x] **Step 3: Build a custom CSS toast overlay component to handle purchase completion message responses**
+  - [x] Leverage the custom glassmorphic floating toast notification container.
+- [x] **Step 4: Verify font matching across button labels, ensuring text scales nicely during dynamic text-swapping interactions**
+  - [x] Ensure button font and style integrity are maintained during text-swap.
+- [x] **Step 5: Run the integrated browser test runner to guarantee link anchors execute seamlessly across desktop and mobile screens**
+  - [x] Verify click anchors, dropdown selections, checkout simulation, and toast notifications.
+
+
 
