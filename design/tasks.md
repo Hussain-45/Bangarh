@@ -35,3 +35,11 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
 
 - [x] **Step 7: Execute browser agent tests to verify zero text clip across mobile viewports**
   - [x] Verify wide viewport margins and ensure no horizontal overflow bugs on mobile.
+
+- [x] **Step 8: Interactive modal expansion systems for platforms switcher cards**
+  - [x] Code the structural hidden Modal components (`id="modal-ed"`, `id="modal-career"`, etc.) in the HTML tree.
+  - [x] Write vanilla JavaScript event listeners to catch click actions on "Learn More" buttons.
+  - [x] Implement GSAP timelines to smoothly open and close the detailed panels with a subtle spring ease.
+  - [x] Populate the inside of the modals with complete, rich data (IELTS Prep modules, SOP toolkits, ATS resume frameworks).
+  - [x] Test modal closing interactions (ESC key, clicking outside the card, Close button).
+  - [x] Verify responsive scaling to ensure long detailed text scrolls cleanly inside the modal overlay on mobile screens.

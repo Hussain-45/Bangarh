@@ -1091,20 +1091,25 @@
         setTimeout(() => {
           const current = ecosystemData[tab];
           ecosystemCards.innerHTML = current.map(item => `
-            <div class="ecosystem-card p-10 bg-gradient-to-br from-slate-950/80 via-[#0B132B]/50 to-[#020617] backdrop-blur-xl border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.5)] rounded-xl animated-glow-card flex flex-col justify-between min-h-[360px] transform transition-all duration-300 relative overflow-hidden">
+            <div class="ecosystem-card p-10 bg-gradient-to-br from-slate-950/80 via-[#0B132B]/50 to-[#020617] backdrop-blur-xl border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.5)] rounded-xl animated-glow-card flex flex-col justify-between min-h-[390px] transform transition-all duration-300 relative overflow-hidden">
               <!-- Corner Neon lights -->
               <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl"></div>
-              <div class="space-y-6">
-                <div class="flex justify-between items-center">
+              <div>
+                <div class="flex justify-between items-center mb-6">
                   <span class="text-cyan-500 text-3xl">${item.icon}</span>
                   <span class="text-[10px] font-bold uppercase tracking-widest text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded bg-cyan-500/5 font-sans">${item.badge}</span>
                 </div>
-                <h3 class="text-xl font-heading font-bold text-white">${item.title}</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">${item.desc}</p>
+                <h3 class="text-xl font-heading font-bold text-white mb-2 uppercase">${item.title}</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6 font-sans">${item.desc}</p>
               </div>
-              <div class="border-t border-white/[0.06] pt-4 mt-6 flex justify-between items-center text-xs font-sans">
-                <span class="text-slate-500">Tier Focus</span>
-                <span class="text-cyan-400 font-bold tracking-widest uppercase">${item.tier}</span>
+              <div class="space-y-4">
+                <button onclick="openModal('${tab === 'elite' ? 'modal-ed' : tab === 'sprints' ? 'modal-career' : 'modal-placement'}')" class="w-full text-center font-bricolage text-xs font-bold uppercase tracking-widest text-white bg-slate-900/80 hover:bg-cyan-500 hover:text-[#020617] border border-white/[0.1] py-4 rounded-xl transition-all duration-300">
+                  Learn More &rarr;
+                </button>
+                <div class="border-t border-white/[0.06] pt-4 flex justify-between items-center text-xs font-sans">
+                  <span class="text-slate-500">Tier Focus</span>
+                  <span class="text-cyan-400 font-bold tracking-widest uppercase">${item.tier}</span>
+                </div>
               </div>
             </div>
           `).join("");
@@ -1140,6 +1145,179 @@
       // Set initial state
       updateEcosystemTheme("elite");
 
+    });
+  </script>
+
+  <!-- FLOATING EXTENDED DETAILS MODAL OVERLAYS -->
+  
+  <!-- 1. Ed-Pathways Modal -->
+  <div id="modal-ed" class="modal-overlay fixed inset-0 z-50 bg-[#020617]/85 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4 sm:p-6">
+    <div class="modal-card-body bg-[#0B132B]/90 border border-white/[0.1] rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-8 sm:p-10 shadow-[0_0_50px_rgba(6,182,212,0.15)] relative transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
+      
+      <!-- Close button -->
+      <button onclick="closeModal('modal-ed')" class="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Content -->
+      <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase block mb-2">Detailed Platform Analysis</span>
+      <h4 class="font-syne text-2xl sm:text-4xl font-extrabold text-white uppercase mb-6">Ed-Pathways Ecosystem</h4>
+      
+      <div class="space-y-6 font-bricolage text-sm text-slate-300 font-light">
+        <p>Our academic vertical operates as a full-tier deployment engine for global higher education matching. We eliminate the guesswork from application profiles by using structured baseline tracking.</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 pt-4">
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">University Matching Matrix</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Algorithmic sorting across Reach, Target, and Safety campuses in the US, UK, Canada, and Europe.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">Dossier & SOP Curation</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Iterative, line-by-line editorial vetting of Statements of Purpose and academic recommendations.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300 sm:col-span-2">
+            <h5 class="font-bold text-white mb-2">18-Month Admissions Timeline</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Strategic planning mapping of standardized testing cycles (SAT, GRE, TOEFL) and visa documentation filings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Career-Core Modal -->
+  <div id="modal-career" class="modal-overlay fixed inset-0 z-50 bg-[#020617]/85 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4 sm:p-6">
+    <div class="modal-card-body bg-[#0B132B]/90 border border-white/[0.1] rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-8 sm:p-10 shadow-[0_0_50px_rgba(6,182,212,0.15)] relative transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
+      
+      <!-- Close button -->
+      <button onclick="closeModal('modal-career')" class="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Content -->
+      <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase block mb-2">Detailed Platform Analysis</span>
+      <h4 class="font-syne text-2xl sm:text-4xl font-extrabold text-white uppercase mb-6">Career-Core Platform</h4>
+      
+      <div class="space-y-6 font-bricolage text-sm text-slate-300 font-light">
+        <p>Our professional vertical re-engineers careers for international sponsor matching. We build candidate capabilities to meet global corporate requirements.</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 pt-4">
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">Relocation Prep Sprints</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Fast-track cohorts covering technical interview loops, system design, and localized target sponsor mappings.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">Live Simulated Panels</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Weekly mock interview channels simulating high-intensity panel evaluations and recruiter screening stages.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300 sm:col-span-2">
+            <h5 class="font-bold text-white mb-2">ATS Portfolio & Resume Engine</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Automated re-formatting of technical CVs, LinkedIn presence, and GitHub repositories to clear screening filters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Placement-Max Modal -->
+  <div id="modal-placement" class="modal-overlay fixed inset-0 z-50 bg-[#020617]/85 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4 sm:p-6">
+    <div class="modal-card-body bg-[#0B132B]/90 border border-white/[0.1] rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-8 sm:p-10 shadow-[0_0_50px_rgba(6,182,212,0.15)] relative transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
+      
+      <!-- Close button -->
+      <button onclick="closeModal('modal-placement')" class="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Content -->
+      <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase block mb-2">Detailed Platform Analysis</span>
+      <h4 class="font-syne text-2xl sm:text-4xl font-extrabold text-white uppercase mb-6">Placement-Max Toolkit</h4>
+      
+      <div class="space-y-6 font-bricolage text-sm text-slate-300 font-light">
+        <p>Our self-paced asset repository offers downloadable document structures, automated templates, and detailed visa guides to handle filings independently.</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 pt-4">
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">Self-Paced Resources</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Interactive roadmaps, checklists, timeline organizers, and tracking dashboards to manage applications.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300">
+            <h5 class="font-bold text-white mb-2">Template Databases</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Direct download templates for resumes, recommendations, reference letters, and cover letters.</p>
+          </div>
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-white/[0.04] hover:border-cyan-500/20 transition-all duration-300 sm:col-span-2">
+            <h5 class="font-bold text-white mb-2">Visa & Financial Compliance Vaults</h5>
+            <p class="text-xs text-slate-400 leading-relaxed">Step-by-step video instructions for preparing bank statements, declaration filings, and mock visa interview questions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- MODAL DYNAMIC INTERACTION CONTROLLERS ---
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('pointer-events-none');
+      
+      // GSAP animate fade-in of background overlay
+      gsap.to(modal, {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out"
+      });
+
+      // GSAP animate scale and spring ease-out of inner card
+      const modalContent = modal.querySelector(".modal-card-body");
+      gsap.to(modalContent, {
+        scale: 1,
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "back.out(1.5)"
+      });
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      
+      // GSAP animate fade-out of background overlay
+      gsap.to(modal, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          modal.classList.add('pointer-events-none');
+        }
+      });
+
+      // GSAP animate scale-down of inner card
+      const modalContent = modal.querySelector(".modal-card-body");
+      gsap.to(modalContent, {
+        scale: 0.95,
+        y: 10,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in"
+      });
+    }
+
+    // Close on Escape key press
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".modal-overlay").forEach(modal => {
+          if (!modal.classList.contains("pointer-events-none")) {
+            closeModal(modal.id);
+          }
+        });
+      }
+    });
+
+    // Close on clicking outside the card
+    document.querySelectorAll(".modal-overlay").forEach(modal => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal(modal.id);
+        }
+      });
     });
   </script>
 </body>
