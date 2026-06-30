@@ -120,6 +120,20 @@ This file tracks the production steps for the Academic Prep & Digital Toolkit se
 - [x] **Step 4: Execute local preview verification check**
   - [x] Ensure root index.html renders the portal and plays local video asset with no broken paths.
 
+---
+
+## Purchase Inquiry Form Transition
+
+- [x] **Step 1: Replace UPI Payment Modal with Purchase Inquiry Form Modal**
+  - [x] Replace `upi-payment-modal` with `purchase-inquiry-modal` in both root `index.html` and `public/index.html`.
+  - [x] Design premium modal containing fields for Name, Email, Phone, Program selector, and Details message.
+- [x] **Step 2: Clean up unused qrcodejs CDN script imports**
+  - [x] Remove the unused script tag from the header of both HTML files.
+- [x] **Step 3: Update action handlers and DOMContentLoaded triggers**
+  - [x] Bind Reserve Seat and Download Bundle click listeners to open the inquiry modal prefilled with the corresponding course.
+  - [x] Add form submission handler to validate inputs (Name, Phone) and show a success toast notification.
+
+
 
 
 

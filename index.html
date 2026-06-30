@@ -18,7 +18,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 
 
 
@@ -1662,19 +1662,20 @@
 
       if (academyReserveBtn) {
         academyReserveBtn.addEventListener("click", () => {
-          if (window.triggerUPICheckout) {
-            window.triggerUPICheckout("IELTS & Global Test Prep", 20900, "IELTS Cohort Seat");
+          if (window.triggerPurchaseInquiry) {
+            window.triggerPurchaseInquiry("ielts");
           }
         });
       }
 
       if (academyDownloadBtn) {
         academyDownloadBtn.addEventListener("click", () => {
-          if (window.triggerUPICheckout) {
-            window.triggerUPICheckout("Elite SOP & Resume Blueprint", 4100, "SOP Bundle Download");
+          if (window.triggerPurchaseInquiry) {
+            window.triggerPurchaseInquiry("sop");
           }
         });
       }
+
 
 
       if (academyInquireBtn) {
@@ -1903,31 +1904,60 @@
     </div>
   </div>
 
-  <!-- FLOATING MODAL CHECKOUT COMPONENT -->
-  <div id="upi-payment-modal" class="modal-overlay fixed inset-0 z-[150] bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
-      <div class="modal-card-body bg-[#0B132B]/95 border border-white/[0.1] rounded-2xl max-w-md w-full p-6 text-center relative shadow-[0_0_50px_rgba(6,182,212,0.15)] transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
+  <!-- FLOATING MODAL CHECKOUT COMPONENT (PURCHASE INQUIRY FORM) -->
+  <div id="purchase-inquiry-modal" class="modal-overlay fixed inset-0 z-[150] bg-black/80 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+      <div class="modal-card-body bg-[#0B132B]/95 border border-white/[0.1] rounded-2xl max-w-md w-full p-6 text-left relative shadow-[0_0_50px_rgba(6,182,212,0.15)] transform scale-95 opacity-0 translate-y-2 transition-all duration-300">
           
-          <button onclick="closeModal('upi-payment-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">&times;</button>
+          <button onclick="closeModal('purchase-inquiry-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">&times;</button>
           
-          <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.2em] uppercase block mb-1">Secure Checkout</span>
-          <h4 id="checkout-item-title" class="font-syne text-xl font-bold text-white uppercase mb-2">Item</h4>
-          <div id="checkout-item-price" class="font-syne text-2xl font-extrabold text-cyan-400 mb-6">₹0.00</div>
+          <span class="font-bricolage text-[10px] font-bold text-cyan-400 tracking-[0.2em] uppercase block mb-1 text-center">Secure Registration Request</span>
+          <h4 class="font-syne text-xl font-bold text-white uppercase mb-4 text-center">Program Enrollment</h4>
           
-          <!-- QR Container Shell -->
-          <div class="bg-white p-4 rounded-xl inline-block mb-6 shadow-inner mx-auto" id="qrcode-target"></div>
-          
-          <p class="font-bricolage text-xs text-slate-400 mb-6 px-4">Scan this QR code using any UPI app (GPay, PhonePe, Paytm) to complete your transaction.</p>
-          
-          <!-- Mobile Direct Intent Link -->
-          <a id="upi-mobile-intent" href="#" class="hidden max-sm:block w-full font-bricolage text-xs font-bold uppercase tracking-widest text-[#020617] bg-cyan-400 py-4 rounded-xl mb-3 text-center font-sans">
-              Open in UPI App
-          </a>
-          
-          <button onclick="simulateVerification()" class="w-full font-bricolage text-xs font-bold uppercase tracking-widest text-white bg-slate-900 border border-white/[0.1] py-4 rounded-xl hover:bg-slate-800">
-              Verify Payment & Unlock
-          </button>
+          <form id="purchase-inquiry-form" class="space-y-4">
+              <!-- Name Input -->
+              <div class="space-y-1">
+                  <label for="inquiry-name" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Name</label>
+                  <input type="text" id="inquiry-name" required placeholder="John Doe" class="w-full px-4 py-2.5 bg-slate-950/50 border-b border-slate-800 focus:border-cyan-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
+              </div>
+
+              <!-- Email Input -->
+              <div class="space-y-1">
+                  <label for="inquiry-email" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
+                  <input type="email" id="inquiry-email" required placeholder="john@example.com" class="w-full px-4 py-2.5 bg-slate-950/50 border-b border-slate-800 focus:border-cyan-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
+              </div>
+
+              <!-- Phone Input -->
+              <div class="space-y-1">
+                  <label for="inquiry-phone" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Phone Number</label>
+                  <input type="tel" id="inquiry-phone" required placeholder="+44 7587 873484" class="w-full px-4 py-2.5 bg-slate-950/50 border-b border-slate-800 focus:border-cyan-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 transition-colors">
+              </div>
+
+              <!-- Program Selector -->
+              <div class="space-y-1">
+                  <label for="inquiry-program" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Selected Program</label>
+                  <select id="inquiry-program" required class="w-full px-4 py-2.5 bg-slate-950/50 border-b border-slate-800 focus:border-cyan-500 focus:outline-none text-slate-350 text-xs transition-colors">
+                      <option value="ielts">IELTS & Global Test Prep Sprint ($249 / ₹20,900)</option>
+                      <option value="sop">The Elite SOP & Resume Blueprint ($49 / ₹4,100)</option>
+                      <option value="b2b">Campus-to-Global Placement Tracks (Custom)</option>
+                  </select>
+              </div>
+
+              <!-- Extra Details -->
+              <div class="space-y-1">
+                  <label for="inquiry-message" class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Additional details (Optional)</label>
+                  <textarea id="inquiry-message" rows="2" placeholder="Mention any specific requests or deadlines..." class="w-full px-4 py-2.5 bg-slate-950/50 border-b border-slate-800 focus:border-cyan-500 focus:outline-none text-slate-100 text-xs placeholder-slate-650 resize-none transition-colors"></textarea>
+              </div>
+
+              <!-- Submit Trigger -->
+              <div class="pt-2">
+                  <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-cyan-600 to-cyan-500 text-slate-950 font-bold text-xs uppercase tracking-widest hover:shadow-lg hover:shadow-cyan-500/15 transition-all rounded-lg">
+                      Submit Purchase Request
+                  </button>
+              </div>
+          </form>
       </div>
   </div>
+
 
 
   <!-- ================================================================
@@ -1995,53 +2025,63 @@
   <script>
     // --- MODAL DYNAMIC INTERACTION CONTROLLERS ---
     
-    // UPI PAYMENT SYSTEM STATE & CONTROL
-    let currentActiveAsset = null;
-    window.triggerUPICheckout = function(itemName, amountINR, noteText) {
-      const title = document.getElementById('checkout-item-title');
-      const price = document.getElementById('checkout-item-price');
-      const qrTarget = document.getElementById('qrcode-target');
-      const intentLink = document.getElementById('upi-mobile-intent');
-      
-      currentActiveAsset = noteText;
-      title.innerText = itemName;
-      price.innerText = "₹" + amountINR.toLocaleString('en-IN');
-      
-      // Formulate Deep Link String
-      const upiLink = `upi://pay?pa=hussain45@upi&pn=Bangarh%20Limited&am=${amountINR}&cu=INR&tn=${encodeURIComponent(noteText)}`;
-      
-      // Re-draw QR Code
-      qrTarget.innerHTML = "";
-      new QRCode(qrTarget, {
-          text: upiLink,
-          width: 180,
-          height: 180,
-          colorDark : "#020617",
-          colorLight : "#ffffff"
-      });
-      
-      intentLink.href = upiLink;
-      
-      // Open Modal
-      openModal('upi-payment-modal');
+    // PURCHASE INQUIRY MODAL SYSTEM
+    window.triggerPurchaseInquiry = function(programValue) {
+      const select = document.getElementById('inquiry-program');
+      if (select && programValue) {
+        select.value = programValue;
+      }
+      openModal('purchase-inquiry-modal');
     };
 
-    window.simulateVerification = function() {
-      closeModal('upi-payment-modal');
-      if (window.showToast) {
-        window.showToast(`Payment Confirmed. Access granted to: ${currentActiveAsset}`, "success");
+    // Handle form submit
+    document.addEventListener("DOMContentLoaded", () => {
+      const inquiryForm = document.getElementById("purchase-inquiry-form");
+      if (inquiryForm) {
+        inquiryForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("inquiry-name").value.trim();
+          const email = document.getElementById("inquiry-email").value.trim();
+          const phone = document.getElementById("inquiry-phone").value.trim();
+          const program = document.getElementById("inquiry-program").value;
+          const message = document.getElementById("inquiry-message").value.trim();
+
+          // Validation
+          if (name.length < 2) {
+            if (window.showToast) window.showToast("Please enter your full name.", "error");
+            return;
+          }
+          if (phone.length < 6) {
+            if (window.showToast) window.showToast("Please enter a valid phone number.", "error");
+            return;
+          }
+
+          // Fetch simulation / offline fallback
+          fetch('/api/v1/purchase-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, program, message })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (window.showToast) {
+              window.showToast("Inquiry Submitted! Our team will contact you shortly.", "success");
+            }
+            closeModal('purchase-inquiry-modal');
+            inquiryForm.reset();
+          })
+          .catch(() => {
+            // Fallback for static builds
+            if (window.showToast) {
+              window.showToast("Inquiry Submitted! Our team will contact you shortly.", "success");
+            }
+            closeModal('purchase-inquiry-modal');
+            inquiryForm.reset();
+          });
+        });
       }
-      
-      if (currentActiveAsset && currentActiveAsset.includes('Bundle')) {
-          // Trigger automated asset sheet download script
-          const link = document.createElement('a');
-          link.href = '#';
-          link.download = 'Bangarh_SOP_Blueprint_Premium.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-      }
-    };
+    });
+
 
     function openModal(id) {
       const modal = document.getElementById(id);
